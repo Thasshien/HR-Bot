@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, Package, Users, CheckCircle, X, Eye } from 'lucide-react';
 
-const HRDashboard = () => {
+const HR = () => {
   const [activeTab, setActiveTab] = useState('leave-requests');
 
   // Static JSON data
@@ -332,4 +332,4 @@ const HRDashboard = () => {
   );                                                                                                                                                            Q
 };
 
-export default HRDashboard;
+export default HR;

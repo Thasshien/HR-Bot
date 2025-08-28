@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, MessageSquare, Package, User, Send, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useEffect } from 'react';
 
-const EmployeePortal = () => {
+const Employee = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [formData, setFormData] = useState({});
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -523,4 +523,4 @@ const EmployeePortal = () => {
 };
 
     
-export default EmployeePortal;
+export default Employee;

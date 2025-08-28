@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { User, Shield, Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
-import usenavigate from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 export default function LoginPage() {
   const [userType, setUserType] = useState('employee');
   const [showPassword, setShowPassword] = useState(false);
@@ -9,7 +10,8 @@ export default function LoginPage() {
     id: '',
     password: ''
   });
-  const url = 'http://localhost:3000'
+  const url = 'http://localhost:3000';
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setCredentials({
@@ -17,39 +19,32 @@ export default function LoginPage() {
       [e.target.name]: e.target.value
     });
   };
-  const navigate = usenavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
-    // Static UI - no backend functionality
     console.log('Login attempt:', { userType, ...credentials });
-    // alert(`${userType === 'employee' ? 'Employee' : 'HR'} login attempted with ID: ${credentials.id}`);
+
     if (userType === 'employee') {
       const newUrl = url + '/api/emp/login';
-
       axios.post(newUrl, { credentials })
         .then((response) => {
           console.log("Logged in successfully!", response.data);
-          // you can also do other actions here, e.g., redirect
-          navigate ('/emp_dashboard')
+          navigate('/emp_dashboard');
         })
         .catch((error) => {
           console.error("Login failed:", error.response ? error.response.data : error.message);
-          
         });
-    }
-    else if (userType === 'hr') {
-      const newurl = url + '/api/hr/login'
+    } else if (userType === 'hr') {
+      const newUrl = url + '/api/hr/login';
       axios.post(newUrl, { credentials })
         .then((response) => {
           console.log("Logged in successfully!", response.data);
-          // you can also do other actions here, e.g., redirect
-          navigate ('/hr_dashboard')
+          navigate('/hr_dashboard');
         })
         .catch((error) => {
           console.error("Login failed:", error.response ? error.response.data : error.message);
         });
     }
-
   };
 
   return (
@@ -91,7 +86,6 @@ export default function LoginPage() {
 
           {/* Login Form */}
           <div className="space-y-4">
-            {/* ID Input */}
             <div>
               <label htmlFor="id" className="block text-sm font-medium text-gray-700 mb-2">
                 {userType === 'employee' ? 'Employee ID' : 'HR ID'}
@@ -107,7 +101,6 @@ export default function LoginPage() {
               />
             </div>
 
-            {/* Password Input */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password
@@ -132,7 +125,6 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Login Button */}
             <button
               onClick={handleLogin}
               className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-opacity-50 ${userType === 'employee'
@@ -144,7 +136,6 @@ export default function LoginPage() {
             </button>
           </div>
 
-          {/* Footer Links */}
           <div className="mt-6 text-center">
             <a href="#" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
               Forgot your password?
@@ -152,7 +143,6 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-white text-sm opacity-80">
             © 2025 Company Name. All rights reserved.
