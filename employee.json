@@ -1,81 +1,81 @@
 [
   {
-    "id": 11,
+    "id": "11",
     "name": "Alice Johnson",
     "username": "alice.johnson",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Engineering",
     "leaveBalance": 1
   },
   {
-    "id": 12,
+    "id": "12",
     "name": "Bob Smith",
     "username": "bob.smith",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Marketing",
     "leaveBalance": 1
   },
   {
-    "id": 13,
+    "id": "13",
     "name": "Carol Lee",
     "username": "carol.lee",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "HR",
     "leaveBalance": 1
   },
   {
-    "id": 14,
+    "id": "14",
     "name": "David Miller",
     "username": "david.miller",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Engineering",
     "leaveBalance": 1
   },
   {
-    "id": 15,
+    "id": "15",
     "name": "Eve Davis",
     "username": "eve.davis",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Finance",
     "leaveBalance": 1
   },
   {
-    "id": 16,
+    "id": "16",
     "name": "Frank Wilson",
     "username": "frank.wilson",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Marketing",
     "leaveBalance": 1
   },
   {
-    "id": 17,
+    "id": "17",
     "name": "Grace Taylor",
     "username": "grace.taylor",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "HR",
     "leaveBalance": 1
   },
   {
-    "id": 18,
+    "id": "18",
     "name": "Henry Brown",
     "username": "henry.brown",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Engineering",
     "leaveBalance": 1
   },
   {
-    "id": 19,
+    "id": "19",
     "name": "Ivy Martinez",
     "username": "ivy.martinez",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Finance",
     "leaveBalance": 1
   },
   {
-    "id": 20,
+    "id": "20",
     "name": "Jack Thomas",
     "username": "jack.thomas",
-    "password": "password123",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
     "department": "Marketing",
     "leaveBalance": 1
   }
