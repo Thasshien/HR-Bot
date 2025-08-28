@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { User, Shield, Eye, EyeOff } from 'lucide-react';
-
+import axios from 'axios';
 export default function LoginPage() {
   const [userType, setUserType] = useState('employee');
   const [showPassword, setShowPassword] = useState(false);
@@ -8,6 +8,7 @@ export default function LoginPage() {
     id: '',
     password: ''
   });
+  const url ='http://localhost:3000'
 
   const handleInputChange = (e) => {
     setCredentials({
@@ -20,7 +21,21 @@ export default function LoginPage() {
     e.preventDefault();
     // Static UI - no backend functionality
     console.log('Login attempt:', { userType, ...credentials });
-    alert(`${userType === 'employee' ? 'Employee' : 'HR'} login attempted with ID: ${credentials.id}`);
+    // alert(`${userType === 'employee' ? 'Employee' : 'HR'} login attempted with ID: ${credentials.id}`);
+    if (userType ==='employee'){
+      const newurl  = url + '/api/emp/login'
+        axios.post(newurl,{
+          credentials
+
+        })
+    }
+    else if (userType ==='hr'){
+      const newurl  = url + '/api/hr/login'
+        axios.post(newurl,{
+         credentials
+        })
+    }
+
   };
 
   return (
