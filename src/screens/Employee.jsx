@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, MessageSquare, Package, User, Send, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useEffect } from 'react';
-
+import axios from 'axios';
 const Employee = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [formData, setFormData] = useState({});
@@ -27,8 +27,48 @@ const Employee = () => {
     }, 1000);
   };
 
-  const LeaveApplicationForm = () => (
-    <div className="max-w-2xl mx-auto">
+const LeaveApplicationForm = () => {
+  const [formData, setFormData] = useState({
+    leaveType: '',
+    duration: '',
+    startDate: '',
+    endDate: '',
+    reason: '',
+    contact: ''
+  });
+
+  const [submitStatus, setSubmitStatus] = useState('idle');
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async () => {
+    setSubmitStatus('submitting');
+    try {
+      // Make your API call here
+      console.log('Submitting leave application:', formData);
+      // Simulate API delay
+      await new Promise(res => setTimeout(res, 1000));
+      // alert('Leave application submitted successfully!');
+      setFormData({
+        leaveType: '',
+        duration: '',
+        startDate: '',
+        endDate: '',
+        reason: '',
+  
+      });
+    } catch (error) {
+      console.error(error);
+      alert('Error submitting leave application.');
+    } finally {
+      setSubmitStatus('idle');
+    }
+  };
+
+  return (
+    <div className="max-w-2xl mx-auto mt-10">
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <Calendar className="w-6 h-6 text-blue-600 mr-3" />
@@ -41,7 +81,7 @@ const Employee = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">Leave Type</label>
               <select 
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.leaveType || ''}
+                value={formData.leaveType}
                 onChange={(e) => handleInputChange('leaveType', e.target.value)}
                 required
               >
@@ -58,7 +98,7 @@ const Employee = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
               <select 
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.duration || ''}
+                value={formData.duration}
                 onChange={(e) => handleInputChange('duration', e.target.value)}
                 required
               >
@@ -76,7 +116,7 @@ const Employee = () => {
               <input
                 type="date"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.startDate || ''}
+                value={formData.startDate}
                 onChange={(e) => handleInputChange('startDate', e.target.value)}
                 required
               />
@@ -87,7 +127,7 @@ const Employee = () => {
               <input
                 type="date"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.endDate || ''}
+                value={formData.endDate}
                 onChange={(e) => handleInputChange('endDate', e.target.value)}
                 required
               />
@@ -100,34 +140,32 @@ const Employee = () => {
               rows="4"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Please provide details about your leave request..."
-              value={formData.reason || ''}
+              value={formData.reason}
               onChange={(e) => handleInputChange('reason', e.target.value)}
               required
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Contact During Leave</label>
-            <input
-              type="tel"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Emergency contact number"
-              value={formData.contact || ''}
-              onChange={(e) => handleInputChange('contact', e.target.value)}
-            />
-          </div>
+      
 
           <div className="flex gap-4 pt-6">
             <button
               type="button"
-              onClick={() => setActiveSection('dashboard')}
+              onClick={() => setFormData({
+                leaveType: '',
+                duration: '',
+                startDate: '',
+                endDate: '',
+                reason: '',
+                contact: ''
+              })}
               className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
             >
               Cancel
             </button>
             <button
               type="button"
-              onClick={() => handleSubmit('leave')}
+              onClick={handleSubmit}
               disabled={submitStatus === 'submitting'}
               className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
             >
@@ -139,162 +177,115 @@ const Employee = () => {
       </div>
     </div>
   );
+};
 
-  const PolicyQueryForm = () => (
-    <div className="max-w-2xl mx-auto">
+const PolicyQueryForm = () => {
+  const [query, setQuery] = useState('');
+  const [response, setResponse] = useState('');
+  const [loading, setLoading] = useState(false);
+  
+  const handleSubmit = async () => {
+    if (!query) return;
+    setLoading(true);
+    setResponse('');
+    console.log("User Query:", query);
+    // try {
+    //   // Replace this with your LLM API call
+    //   
+    //   const res = await axios.post('http://localhost:3000/api/llm', { query });
+    //   setResponse(res.data.answer || 'No response received.');
+    // } catch (error) {
+    //   console.error(error);
+    //   setResponse('Error fetching response.');
+    // } finally {
+    //   setLoading(false);
+    // }
+  };
+
+  return (
+    <div className="max-w-xl mx-auto mt-10">
       <div className="bg-white rounded-xl shadow-lg p-8">
-        <div className="flex items-center mb-6">
-          <MessageSquare className="w-6 h-6 text-green-600 mr-3" />
-          <h2 className="text-2xl font-bold text-gray-800">Policy Query</h2>
-        </div>
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Ask a Queries to the PolicyBot </h2>
         
-        <div className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Query Category</label>
-            <select 
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              value={formData.category || ''}
-              onChange={(e) => handleInputChange('category', e.target.value)}
-              required
-            >
-              <option value="">Select Category</option>
-              <option value="attendance">Attendance Policy</option>
-              <option value="leave">Leave Policy</option>
-              <option value="compensation">Compensation & Benefits</option>
-              <option value="conduct">Code of Conduct</option>
-              <option value="performance">Performance Management</option>
-              <option value="training">Training & Development</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
+        <textarea
+          rows="4"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent mb-4"
+          placeholder="Here to solve all your HR policy questions! Ask me anything about leave policies, benefits, workplace guidelines, and more. I'm here to help you navigate company policies with ease...."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Priority Level</label>
-            <div className="flex gap-4">
-              {['Low', 'Medium', 'High', 'Urgent'].map((priority) => (
-                <label key={priority} className="flex items-center">
-                  <input
-                    type="radio"
-                    name="priority"
-                    value={priority.toLowerCase()}
-                    checked={formData.priority === priority.toLowerCase()}
-                    onChange={(e) => handleInputChange('priority', e.target.value)}
-                    className="mr-2 text-green-600"
-                  />
-                  <span className={`px-3 py-1 rounded-full text-sm ${
-                    priority === 'Low' ? 'bg-green-100 text-green-800' :
-                    priority === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                    priority === 'High' ? 'bg-orange-100 text-orange-800' :
-                    'bg-red-100 text-red-800'
-                  }`}>
-                    {priority}
-                  </span>
-                </label>
-              ))}
-            </div>
-          </div>
+        <button
+          onClick={handleSubmit}
+          disabled={loading}
+          className="bg-green-600 text-white py-2 px-6 rounded-lg font-medium hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+        >
+          <Send className="w-4 h-4" />
+          {loading ? 'Submitting...' : 'Submit'}
+        </button>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Query Subject</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              placeholder="Brief subject of your query"
-              value={formData.subject || ''}
-              onChange={(e) => handleInputChange('subject', e.target.value)}
-              required
-            />
+        {response && (
+          <div className="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200">
+            <h3 className="font-medium text-gray-700 mb-2">Response:</h3>
+            <p className="text-gray-800 whitespace-pre-line">{response}</p>
           </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Detailed Query</label>
-            <textarea
-              rows="5"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              placeholder="Please describe your policy-related question in detail..."
-              value={formData.query || ''}
-              onChange={(e) => handleInputChange('query', e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Response Method</label>
-            <div className="flex gap-6">
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="responseMethod"
-                  value="email"
-                  checked={formData.responseMethod === 'email'}
-                  onChange={(e) => handleInputChange('responseMethod', e.target.value)}
-                  className="mr-2 text-green-600"
-                />
-                Email
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="responseMethod"
-                  value="call"
-                  checked={formData.responseMethod === 'call'}
-                  onChange={(e) => handleInputChange('responseMethod', e.target.value)}
-                  className="mr-2 text-green-600"
-                />
-                Phone Call
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="responseMethod"
-                  value="meeting"
-                  checked={formData.responseMethod === 'meeting'}
-                  onChange={(e) => handleInputChange('responseMethod', e.target.value)}
-                  className="mr-2 text-green-600"
-                />
-                In-Person Meeting
-              </label>
-            </div>
-          </div>
-
-          <div className="flex gap-4 pt-6">
-            <button
-              type="button"
-              onClick={() => setActiveSection('dashboard')}
-              className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={() => handleSubmit('policy')}
-              disabled={submitStatus === 'submitting'}
-              className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              <Send className="w-4 h-4" />
-              {submitStatus === 'submitting' ? 'Submitting...' : 'Submit Query'}
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
+};
 
-  const AssetRequestForm = () => (
-    <div className="max-w-2xl mx-auto">
+
+ const AssetRequestForm = () => {
+  const [formData, setFormData] = useState({
+    assetCategory: '',
+    requestType: '',
+    assetDescription: '',
+    requiredDate: '',
+    budget: '',
+    justification: '',
+    specifications: ''
+  });
+
+  const [submitStatus, setSubmitStatus] = useState('idle'); // idle | submitting
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleSubmit = async () => {
+    setSubmitStatus('submitting');
+    try {
+      console.log('Submitting asset request:', formData);
+      // call your backend API here
+      await new Promise(resolve => setTimeout(resolve, 1000)); // simulate async
+      alert('Asset request submitted successfully!');
+    } catch (error) {
+      console.error(error);
+      alert('Error submitting request.');
+    } finally {
+      setSubmitStatus('idle');
+    }
+  };
+
+  return (
+    <div className="max-w-2xl mx-auto mt-6">
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
           <Package className="w-6 h-6 text-purple-600 mr-3" />
           <h2 className="text-2xl font-bold text-gray-800">Asset Request</h2>
         </div>
-        
+
         <div className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Asset Category</label>
-              <select 
+              <select
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                value={formData.assetCategory || ''}
+                value={formData.assetCategory}
                 onChange={(e) => handleInputChange('assetCategory', e.target.value)}
                 required
               >
@@ -308,12 +299,12 @@ const Employee = () => {
                 <option value="other">Other</option>
               </select>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Request Type</label>
-              <select 
+              <select
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                value={formData.requestType || ''}
+                value={formData.requestType}
                 onChange={(e) => handleInputChange('requestType', e.target.value)}
                 required
               >
@@ -332,7 +323,7 @@ const Employee = () => {
               type="text"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="Specific model, brand, or detailed description"
-              value={formData.assetDescription || ''}
+              value={formData.assetDescription}
               onChange={(e) => handleInputChange('assetDescription', e.target.value)}
               required
             />
@@ -344,43 +335,33 @@ const Employee = () => {
               <input
                 type="date"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                value={formData.requiredDate || ''}
+                value={formData.requiredDate}
                 onChange={(e) => handleInputChange('requiredDate', e.target.value)}
                 required
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Estimated Budget</label>
               <input
                 type="text"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="₹ (if known)"
-                value={formData.budget || ''}
+                value={formData.budget}
                 onChange={(e) => handleInputChange('budget', e.target.value)}
               />
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Business Justification</label>
-            <textarea
-              rows="4"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="Please explain why this asset is needed for your work..."
-              value={formData.justification || ''}
-              onChange={(e) => handleInputChange('justification', e.target.value)}
-              required
-            />
-          </div>
+         
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Additional Specifications</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Additional Info</label>
             <textarea
               rows="3"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="Any specific technical requirements or preferences..."
-              value={formData.specifications || ''}
+              value={formData.specifications}
               onChange={(e) => handleInputChange('specifications', e.target.value)}
             />
           </div>
@@ -388,14 +369,14 @@ const Employee = () => {
           <div className="flex gap-4 pt-6">
             <button
               type="button"
-              onClick={() => setActiveSection('dashboard')}
+              onClick={() => console.log('Cancel pressed')}
               className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
             >
               Cancel
             </button>
             <button
               type="button"
-              onClick={() => handleSubmit('asset')}
+              onClick={handleSubmit}
               disabled={submitStatus === 'submitting'}
               className="flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
             >
@@ -407,6 +388,7 @@ const Employee = () => {
       </div>
     </div>
   );
+};
 
   const Dashboard = () => (
     <div className="max-w-6xl mx-auto">
