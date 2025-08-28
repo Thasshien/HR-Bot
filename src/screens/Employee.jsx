@@ -188,18 +188,18 @@ const PolicyQueryForm = () => {
     if (!query) return;
     setLoading(true);
     setResponse('');
-    console.log("User Query:", query);
-    // try {
-    //   // Replace this with your LLM API call
-    //   
-    //   const res = await axios.post('http://localhost:3000/api/llm', { query });
-    //   setResponse(res.data.answer || 'No response received.');
-    // } catch (error) {
-    //   console.error(error);
-    //   setResponse('Error fetching response.');
-    // } finally {
-    //   setLoading(false);
-    // }
+    console.log("User Query:",{query});
+     try {
+      // Replace this with your LLM API call
+      
+      const res = await axios.post('http://localhost:3000/api/ask/ask',{ query });
+      setResponse(res.data.reply || 'No response received.');
+    } catch (error) {
+      console.error(error);
+      setResponse('Error fetching response.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
