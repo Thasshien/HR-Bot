@@ -10,14 +10,11 @@ const App = () => {
   return (
 
     <>
-      <Navbar />
       <div className="app">
         <Routes>
           <Route path='/' element={<Login />}></Route>
           <Route path='/emp_dashboard' element={<Employee />}></Route>
           <Route path='/hr_dashboard' element={<HR />}></Route>
-         
-
         </Routes>
       </div>
     </>
