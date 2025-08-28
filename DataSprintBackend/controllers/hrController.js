@@ -7,10 +7,10 @@ const createToken = (id)=>{
 }
 
 const loginUser = async(req,res)=>{
-    const {hrid,password} = req.body;
+    const {id,password} = req.body;
 
     try {
-        const user = await profModel.findOne({id})
+        const user = await hrModel.findOne({id})
         if(!user)
             return res.status(400).json({"message":"Invalid Email or Password"})
         const isMatch = await bcrypt.compare(password,user.password)
