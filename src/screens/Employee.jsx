@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Calendar, MessageSquare, Package, User, Send, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
+import { App_Context } from '../context/Context';
 const Employee = () => {
+  const { signout}= useContext(App_Context);
+  const navigate = useNavigate(); 
   const [activeSection, setActiveSection] = useState('dashboard');
   const [formData, setFormData] = useState({});
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -34,7 +39,6 @@ const LeaveApplicationForm = () => {
     startDate: '',
     endDate: '',
     reason: '',
-    contact: ''
   });
 
   const [submitStatus, setSubmitStatus] = useState('idle');
@@ -48,6 +52,7 @@ const LeaveApplicationForm = () => {
     try {
       // Make your API call here
       console.log('Submitting leave application:', formData);
+    toast.success("Leave application submitted!"); 
       // Simulate API delay
       await new Promise(res => setTimeout(res, 1000));
       // alert('Leave application submitted successfully!');
@@ -68,6 +73,8 @@ const LeaveApplicationForm = () => {
   };
 
   return (
+    <>
+    
     <div className="max-w-2xl mx-auto mt-10">
       <div className="bg-white rounded-xl shadow-lg p-8">
         <div className="flex items-center mb-6">
@@ -176,6 +183,7 @@ const LeaveApplicationForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
@@ -485,6 +493,9 @@ const PolicyQueryForm = () => {
             </div>
             <div className="text-sm text-gray-600">
               Welcome, John Doe
+            </div>
+            <div>
+              <button className='bg-slate-300 p-3 rounded-3xl hover:bg-slate-400' onClick={()=>signout()}>Sign Out</button>
             </div>
           </div>
         </div>

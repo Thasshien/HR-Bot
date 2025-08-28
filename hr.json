@@ -1,0 +1,16 @@
+[
+  {
+    "id": "11",
+    "name": "Alice Johnson",
+    "username": "alice.johnson",
+    "password": "$2b$10$fedapPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
+    "department": "Engineering"
+  },
+  {
+    "id": "12",
+    "name": "Robert Smith",
+    "username": "robert.smith",
+    "password": "$2b$10$yTjPaQbj.l27RyjWVRweDFEzXTJXemaT8ZaNQyKBPwOluVIihQq",
+    "department": "Engineering"
+  }
+]

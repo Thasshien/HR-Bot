@@ -4,13 +4,26 @@ import { Route, Routes } from 'react-router-dom'
 import Login from './screens/Login'
 import Employee from './screens/Employee'
 import HR from './screens/HR'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
 
   return (
 
     <>
-      
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className="app">
         <Routes>
           <Route path='/' element={<Login />}></Route>

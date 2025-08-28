@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Calendar, Package, Users, CheckCircle, X, Eye } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom';
+import { App_Context } from '../context/Context';
 const HR = () => {
+  const {url , signout}= useContext(App_Context);
   const [activeTab, setActiveTab] = useState('leave-requests');
+const navigate = useNavigate();
 
   // Static JSON data
   const leaveRequests = [
@@ -106,11 +109,15 @@ const HR = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="bg-white shadow-sm flex justify-evenly items-center">
+        <div className="max-w-7xl  px-6 py-4">
           <h1 className="text-3xl font-bold text-gray-900">HR Dashboard</h1>
           <p className="text-gray-600">Manage employee requests and leave balances</p>
+          
         </div>
+         <div>
+              <button className='bg-slate-300 p-3 rounded-3xl hover:bg-slate-400 mx-4' onClick={()=>signout()}>Sign Out</button>
+            </div>
       </div>
 
       {/* Navigation Tabs */}
