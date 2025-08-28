@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { User, Shield, Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
-import usenavigate from 'react-router-dom'
+// import usenavigate from 'react-router-dom'
 export default function LoginPage() {
   const [userType, setUserType] = useState('employee');
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +17,7 @@ export default function LoginPage() {
       [e.target.name]: e.target.value
     });
   };
-  const navigate = usenavigate();
+  // const navigate = usenavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     // Static UI - no backend functionality
@@ -26,7 +26,7 @@ export default function LoginPage() {
     if (userType === 'employee') {
       const newUrl = url + '/api/emp/login';
 
-      axios.post(newUrl, { credentials })
+      axios.post(newUrl,  credentials )
         .then((response) => {
           console.log("Logged in successfully!", response.data);
           // you can also do other actions here, e.g., redirect
@@ -37,7 +37,7 @@ export default function LoginPage() {
     }
     else if (userType === 'hr') {
       const newurl = url + '/api/hr/login'
-      axios.post(newUrl, { credentials })
+      axios.post(newUrl, credentials)
         .then((response) => {
           console.log("Logged in successfully!", response.data);
           // you can also do other actions here, e.g., redirect
