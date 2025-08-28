@@ -34,9 +34,9 @@ export const App_Context_Provider = ({children}) =>{
 
     const signout = () =>{
         localStorage.removeItem("token");
-        localStorage.removeItem("currprof");
+    
         toast.success("Signed out successfully");
-        window.location.href = '/studentlogin';
+        window.location.href = '/';
     }
     
 
