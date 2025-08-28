@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { User, Shield, Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
+import usenavigate from 'react-router-dom'
 export default function LoginPage() {
   const [userType, setUserType] = useState('employee');
   const [showPassword, setShowPassword] = useState(false);
@@ -8,7 +9,7 @@ export default function LoginPage() {
     id: '',
     password: ''
   });
-  const url ='http://localhost:3000'
+  const url = 'http://localhost:3000'
 
   const handleInputChange = (e) => {
     setCredentials({
@@ -16,24 +17,34 @@ export default function LoginPage() {
       [e.target.name]: e.target.value
     });
   };
-
+  const navigate = usenavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     // Static UI - no backend functionality
     console.log('Login attempt:', { userType, ...credentials });
     // alert(`${userType === 'employee' ? 'Employee' : 'HR'} login attempted with ID: ${credentials.id}`);
-    if (userType ==='employee'){
-      const newurl  = url + '/api/emp/login'
-        axios.post(newurl,{
-          credentials
+    if (userType === 'employee') {
+      const newUrl = url + '/api/emp/login';
 
+      axios.post(newUrl, { credentials })
+        .then((response) => {
+          console.log("Logged in successfully!", response.data);
+          // you can also do other actions here, e.g., redirect
         })
+        .catch((error) => {
+          console.error("Login failed:", error.response ? error.response.data : error.message);
+        });
     }
-    else if (userType ==='hr'){
-      const newurl  = url + '/api/hr/login'
-        axios.post(newurl,{
-         credentials
+    else if (userType === 'hr') {
+      const newurl = url + '/api/hr/login'
+      axios.post(newUrl, { credentials })
+        .then((response) => {
+          console.log("Logged in successfully!", response.data);
+          // you can also do other actions here, e.g., redirect
         })
+        .catch((error) => {
+          console.error("Login failed:", error.response ? error.response.data : error.message);
+        });
     }
 
   };
@@ -55,22 +66,20 @@ export default function LoginPage() {
           <div className="flex bg-gray-100 rounded-lg p-1 mb-6">
             <button
               onClick={() => setUserType('employee')}
-              className={`flex-1 flex items-center justify-center py-2 px-4 rounded-md transition-all duration-200 ${
-                userType === 'employee'
+              className={`flex-1 flex items-center justify-center py-2 px-4 rounded-md transition-all duration-200 ${userType === 'employee'
                   ? 'bg-white shadow-sm text-blue-600'
                   : 'text-gray-600 hover:text-gray-800'
-              }`}
+                }`}
             >
               <User className="w-4 h-4 mr-2" />
               Employee
             </button>
             <button
               onClick={() => setUserType('hr')}
-              className={`flex-1 flex items-center justify-center py-2 px-4 rounded-md transition-all duration-200 ${
-                userType === 'hr'
+              className={`flex-1 flex items-center justify-center py-2 px-4 rounded-md transition-all duration-200 ${userType === 'hr'
                   ? 'bg-white shadow-sm text-purple-600'
                   : 'text-gray-600 hover:text-gray-800'
-              }`}
+                }`}
             >
               <Shield className="w-4 h-4 mr-2" />
               HR
@@ -123,11 +132,10 @@ export default function LoginPage() {
             {/* Login Button */}
             <button
               onClick={handleLogin}
-              className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-opacity-50 ${
-                userType === 'employee'
+              className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-opacity-50 ${userType === 'employee'
                   ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:ring-blue-300'
                   : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 focus:ring-purple-300'
-              }`}
+                }`}
             >
               Sign In as {userType === 'employee' ? 'Employee' : 'HR'}
             </button>
