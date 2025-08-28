@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { Calendar, Package, Users, CheckCircle, X, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { App_Context } from '../context/Context';
 const HR = () => {
-  const {url , signout}= useContext(App_Context);
+  const {signout}= useContext(App_Context);
   const [activeTab, setActiveTab] = useState('leave-requests');
 const navigate = useNavigate();
 
