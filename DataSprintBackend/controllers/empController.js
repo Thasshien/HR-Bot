@@ -25,4 +25,34 @@ const loginUser = async(req,res)=>{
     }
 }
 
-module.exports = {loginUser};
+const leaveReq = async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(400).json({ message: 'Token missing or invalid format' });
+    }
+
+    // Extract token from header
+    const token = authHeader.split(" ")[1];
+
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+    console.log("Decoded payload:", decoded);
+    console.log("Looking for ID:", decoded.id);
+
+    // Find employee by ID (assuming `id` field in your schema)
+    const emp = await empModel.findOne({ id: decoded.id }).select('leaveBalance');
+    console.log("Found employee:", emp);
+    if (!emp) {
+      return res.status(404).json({ message: 'Employee not found' });
+    }
+
+    res.status(200).json(emp.leaveBalance);
+  } catch (err) {
+    console.error(err);
+    return res.status(401).json({ message: 'Invalid or expired token' });
+  }
+};
+
+
+module.exports = {loginUser , leaveReq};
