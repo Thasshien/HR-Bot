@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     if (userType === 'employee') {
       const newUrl = url + '/api/emp/login';
-      axios.post(newUrl, { credentials })
+      axios.post(newUrl,credentials)
         .then((response) => {
           console.log("Logged in successfully!", response.data);
           navigate('/emp_dashboard');
@@ -36,7 +36,7 @@ export default function LoginPage() {
         });
     } else if (userType === 'hr') {
       const newUrl = url + '/api/hr/login';
-      axios.post(newUrl, { credentials })
+      axios.post(newUrl,credentials)
         .then((response) => {
           console.log("Logged in successfully!", response.data);
           navigate('/hr_dashboard');
