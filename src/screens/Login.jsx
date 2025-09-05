@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { User, Shield, Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginPage() {
   const [userType, setUserType] = useState('employee');
   const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState({
-    id: '',
+    email: '',
     password: ''
   });
-  const url = 'http://localhost:3000';
+  const url = 'http://localhost:3000'; // frappe usually runs on 8000
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -22,32 +24,31 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Login attempt:', { userType, ...credentials });
 
-    if (userType === 'employee') {
-      const newUrl = url + '/api/emp/login';
-      axios.post(newUrl,credentials)
-        .then((response) => {
-          console.log("Logged in successfully!", response.data);
-          localStorage.setItem("token",response.data.token);
-          navigate('/emp_dashboard');
-        })
-        .catch((error) => {
-          console.error("Login failed:", error.response ? error.response.data : error.message);
-        });
-    } else if (userType === 'hr') {
-      const newUrl = url + '/api/hr/login';
-      axios.post(newUrl,credentials)
-        .then((response) => {
-          console.log("Logged in successfully!", response.data);
-          localStorage.setItem("token",response.data.token);
-          navigate('/hr_dashboard');
-        })
-        .catch((error) => {
-          console.error("Login failed:", error.response ? error.response.data : error.message);
-        });
-    }
+    axios.post(
+      `${url}/login`,
+      {
+        email: credentials.email,
+        password: credentials.password
+      },
+      { withCredentials: true } // sends/receives cookies
+    ).then(response => {
+      console.log("Logged in successfully!", response.data);
+      toast.success("Login successful!");
+
+      // Save cookies in browser automatically with withCredentials
+      // Save email locally for backend leave calls
+      localStorage.setItem("userEmail", credentials.email);
+
+      if (userType === 'employee') navigate('/emp_dashboard');
+      else navigate('/hr_dashboard');
+
+    }).catch(error => {
+      console.error("Login failed:", error.response?.data || error.message);
+      toast.error("Login failed! Please check your credentials.");
+    });
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 flex items-center justify-center p-4">
@@ -67,8 +68,8 @@ export default function LoginPage() {
             <button
               onClick={() => setUserType('employee')}
               className={`flex-1 flex items-center justify-center py-2 px-4 rounded-md transition-all duration-200 ${userType === 'employee'
-                  ? 'bg-white shadow-sm text-blue-600'
-                  : 'text-gray-600 hover:text-gray-800'
+                ? 'bg-white shadow-sm text-blue-600'
+                : 'text-gray-600 hover:text-gray-800'
                 }`}
             >
               <User className="w-4 h-4 mr-2" />
@@ -77,8 +78,8 @@ export default function LoginPage() {
             <button
               onClick={() => setUserType('hr')}
               className={`flex-1 flex items-center justify-center py-2 px-4 rounded-md transition-all duration-200 ${userType === 'hr'
-                  ? 'bg-white shadow-sm text-purple-600'
-                  : 'text-gray-600 hover:text-gray-800'
+                ? 'bg-white shadow-sm text-purple-600'
+                : 'text-gray-600 hover:text-gray-800'
                 }`}
             >
               <Shield className="w-4 h-4 mr-2" />
@@ -89,17 +90,17 @@ export default function LoginPage() {
           {/* Login Form */}
           <div className="space-y-4">
             <div>
-              <label htmlFor="id" className="block text-sm font-medium text-gray-700 mb-2">
-                {userType === 'employee' ? 'Employee ID' : 'HR ID'}
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email
               </label>
               <input
                 type="text"
-                id="id"
-                name="id"
-                value={credentials.id}
+                id="email"
+                name="email"
+                value={credentials.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200"
-                placeholder={`Enter your ${userType === 'employee' ? 'employee' : 'HR'} ID`}
+                placeholder="Enter your email"
               />
             </div>
 
@@ -130,8 +131,8 @@ export default function LoginPage() {
             <button
               onClick={handleLogin}
               className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-opacity-50 ${userType === 'employee'
-                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:ring-blue-300'
-                  : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 focus:ring-purple-300'
+                ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 focus:ring-blue-300'
+                : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 focus:ring-purple-300'
                 }`}
             >
               Sign In as {userType === 'employee' ? 'Employee' : 'HR'}
