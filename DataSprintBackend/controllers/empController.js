@@ -27,21 +27,9 @@ const loginUser = async(req,res)=>{
 
 const leaveReq = async (req, res) => {
   try {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return res.status(400).json({ message: 'Token missing or invalid format' });
-    }
-
-    // Extract token from header
-    const token = authHeader.split(" ")[1];
-
-    // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
-    console.log("Decoded payload:", decoded);
-    console.log("Looking for ID:", decoded.id);
-
-    // Find employee by ID (assuming `id` field in your schema)
-    const emp = await empModel.findOne({ id: decoded.id }).select('leaveBalance');
+    const id = req.user
+    
+    const emp = await empModel.findOne({ id: id }).select('leaveBalance');
     console.log("Found employee:", emp);
     if (!emp) {
       return res.status(404).json({ message: 'Employee not found' });

@@ -12,6 +12,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn');
+const testBot = require('./test')
 const port = process.env.PORT || 3000;
 const populateDemoData = require("./populateDemoData");
 const axios = require("axios")
@@ -20,7 +21,7 @@ connectDB();
 // existing routes
 app.use('/api/emp', require('./routes/empRouter'));
 app.use('/api/hr', require('./routes/hrRouter'));
-app.use('/api/ask', require('./routes/ollamaRouter'));
+app.use('/api/ask', require('./routes/rasaRouter'));
 
 // test route
 app.get("/", (req, res) => {
