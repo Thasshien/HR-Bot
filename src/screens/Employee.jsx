@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 import { App_Context } from '../context/Context';
 const Employee = () => {
-  const { signout}= useContext(App_Context);
-  const navigate = useNavigate(); 
+  const { signout } = useContext(App_Context);
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('dashboard');
   const [formData, setFormData] = useState({});
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -18,7 +18,7 @@ const Employee = () => {
       [field]: value
     }));
   };
-
+  const url = 'http://localhost:3000'; // frappe usually runs on 8000
   const handleSubmit = async (formType) => {
     // Simulate API call
     setSubmitStatus('submitting');
@@ -32,263 +32,267 @@ const Employee = () => {
     }, 1000);
   };
 
-const LeaveApplicationForm = () => {
-  const [formData, setFormData] = useState({
-    leaveType: '',
-    duration: '',
-    startDate: '',
-    endDate: '',
-    reason: '',
-  });
+  const LeaveApplicationForm = () => {
+    const [formData, setFormData] = useState({
+      leaveType: '',
 
-  const [submitStatus, setSubmitStatus] = useState('idle');
+      startDate: '',
+      endDate: '',
+      reason: '',
+    });
 
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+    const [submitStatus, setSubmitStatus] = useState('idle');
 
-  const handleSubmit = async () => {
-    setSubmitStatus('submitting');
-    try {
-      // Make your API call here
-      console.log('Submitting leave application:', formData);
-    toast.success("Leave application submitted!"); 
-      // Simulate API delay
-      await new Promise(res => setTimeout(res, 1000));
-      // alert('Leave application submitted successfully!');
-      setFormData({
-        leaveType: '',
-        duration: '',
-        startDate: '',
-        endDate: '',
-        reason: '',
-  
-      });
-    } catch (error) {
-      console.error(error);
-      alert('Error submitting leave application.');
-    } finally {
-      setSubmitStatus('idle');
-    }
-  };
+    const handleInputChange = (field, value) => {
+      setFormData(prev => ({ ...prev, [field]: value }));
+    };
 
-  return (
-    <>
-    
-    <div className="max-w-2xl mx-auto mt-10">
-      <div className="bg-white rounded-xl shadow-lg p-8">
-        <div className="flex items-center mb-6">
-          <Calendar className="w-6 h-6 text-blue-600 mr-3" />
-          <h2 className="text-2xl font-bold text-gray-800">Leave Application</h2>
+    const handleSubmitLeave = async () => {
+      try {
+        const email = localStorage.getItem("userEmail"); // send email for backend lookup
+        const endpoint = formData.leaveType.toLowerCase() === "maternity leave"
+          ? `${url}/apply-leave-maternity`
+          : `${url}/apply-leave`;
+
+        await axios.post(
+          endpoint,
+          { ...formData, email },
+          { withCredentials: true } // sends Frappe session cookie
+        );
+
+        toast.success("Leave applied successfully!");
+        setFormData({ leaveType: '', startDate: '', endDate: '', reason: '' });
+
+      } catch (err) {
+        console.error(err.response?.data || err.message);
+        toast.error(err.response?.data?.error || "Error applying leave.");
+      }
+    };
+
+
+
+
+    return (
+      <>
+
+        <div className="max-w-2xl mx-auto mt-10">
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="flex items-center mb-6">
+              <Calendar className="w-6 h-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-800">Leave Application</h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Leave Type</label>
+                  <select
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    value={formData.leaveType}
+                    onChange={(e) => handleInputChange('leaveType', e.target.value)}
+                    required
+                  >
+                    <option value="">Select Leave Type</option>
+                    <option value="Casual Leave">Casual Leave</option>
+                    <option value="Sick Leave">Sick Leave</option>
+                    <option value="Holiday Fixed">Holiday Fixed</option>
+                    <option value="Holiday Floating">Holiday Floating</option>
+                    <option value="Maternity Leave">Maternity Leave</option>
+                  </select>
+                </div>
+
+
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+                  <input
+                    type="date"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    value={formData.startDate}
+                    onChange={(e) => handleInputChange('startDate', e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
+                  <input
+                    type="date"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    value={formData.endDate}
+                    onChange={(e) => handleInputChange('endDate', e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Reason for Leave</label>
+                <textarea
+                  rows="4"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Please provide details about your leave request..."
+                  value={formData.reason}
+                  onChange={(e) => handleInputChange('reason', e.target.value)}
+                  required
+                />
+              </div>
+
+
+
+              <div className="flex gap-4 pt-6">
+                <button
+                  type="button"
+                  onClick={() => setFormData({
+                    leaveType: '',
+                    duration: '',
+                    startDate: '',
+                    endDate: '',
+                    reason: '',
+                    contact: ''
+                  })}
+                  className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSubmitLeave}
+                  disabled={submitStatus === 'submitting'}
+                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  <Send className="w-4 h-4" />
+                  {submitStatus === 'submitting' ? 'Submitting...' : 'Submit Application'}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Leave Type</label>
-              <select 
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.leaveType}
-                onChange={(e) => handleInputChange('leaveType', e.target.value)}
-                required
-              >
-                <option value="">Select Leave Type</option>
-                <option value="casual">Casual Leave</option>
-                <option value="sick">Sick Leave</option>
-                <option value="annual">Annual Leave</option>
-                <option value="maternity">Maternity Leave</option>
-                <option value="emergency">Emergency Leave</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
-              <select 
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.duration}
-                onChange={(e) => handleInputChange('duration', e.target.value)}
-                required
-              >
-                <option value="">Select Duration</option>
-                <option value="half-day">Half Day</option>
-                <option value="full-day">Full Day</option>
-                <option value="multiple-days">Multiple Days</option>
-              </select>
-            </div>
-          </div>
+      </>
+    );
+  };
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
-              <input
-                type="date"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.startDate}
-                onChange={(e) => handleInputChange('startDate', e.target.value)}
-                required
-              />
+  const PolicyQueryForm = () => {
+    const [query, setQuery] = useState('');
+    const [response, setResponse] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async () => {
+      if (!query) return;
+      setLoading(true);
+      setResponse('');
+      console.log("User Query:", { query });
+      try {
+        // Replace this with your LLM API call
+
+        const res = await axios.post('http://localhost:3000/api/ask/ask', { query });
+        setResponse(res.data.reply || 'No response received.');
+      } catch (error) {
+        console.error(error);
+        setResponse('Error fetching response.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    return (
+      <div className="max-w-xl mx-auto mt-10">
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Ask a Queries to the PolicyBot </h2>
+
+          <textarea
+            rows="4"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent mb-4"
+            placeholder="Here to solve all your HR policy questions! Ask me anything about leave policies, benefits, workplace guidelines, and more. I'm here to help you navigate company policies with ease...."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="bg-green-600 text-white py-2 px-6 rounded-lg font-medium hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+          >
+            <Send className="w-4 h-4" />
+            {loading ? 'Submitting...' : 'Submit'}
+          </button>
+
+          {response && (
+            <div className="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200">
+              <h3 className="font-medium text-gray-700 mb-2">Response:</h3>
+              <p className="text-gray-800 whitespace-pre-line">{response}</p>
             </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
-              <input
-                type="date"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={formData.endDate}
-                onChange={(e) => handleInputChange('endDate', e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Reason for Leave</label>
-            <textarea
-              rows="4"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Please provide details about your leave request..."
-              value={formData.reason}
-              onChange={(e) => handleInputChange('reason', e.target.value)}
-              required
-            />
-          </div>
-
-      
-
-          <div className="flex gap-4 pt-6">
-            <button
-              type="button"
-              onClick={() => setFormData({
-                leaveType: '',
-                duration: '',
-                startDate: '',
-                endDate: '',
-                reason: '',
-                contact: ''
-              })}
-              className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={submitStatus === 'submitting'}
-              className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              <Send className="w-4 h-4" />
-              {submitStatus === 'submitting' ? 'Submitting...' : 'Submit Application'}
-            </button>
-          </div>
+          )}
         </div>
       </div>
-    </div>
-    </>
-  );
-};
-
-const PolicyQueryForm = () => {
-  const [query, setQuery] = useState('');
-  const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false);
-  
-  const handleSubmit = async () => {
-    if (!query) return;
-    setLoading(true);
-    setResponse('');
-    console.log("User Query:",{query});
-     try {
-      // Replace this with your LLM API call
-      
-      const res = await axios.post('http://localhost:3000/api/ask/ask',{ query });
-      setResponse(res.data.reply || 'No response received.');
-    } catch (error) {
-      console.error(error);
-      setResponse('Error fetching response.');
-    } finally {
-      setLoading(false);
-    }
+    );
   };
 
-  return (
-    <div className="max-w-xl mx-auto mt-10">
-      <div className="bg-white rounded-xl shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Ask a Queries to the PolicyBot </h2>
-        
-        <textarea
-          rows="4"
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent mb-4"
-          placeholder="Here to solve all your HR policy questions! Ask me anything about leave policies, benefits, workplace guidelines, and more. I'm here to help you navigate company policies with ease...."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
 
-        <button
-          onClick={handleSubmit}
-          disabled={loading}
-          className="bg-green-600 text-white py-2 px-6 rounded-lg font-medium hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center gap-2"
-        >
-          <Send className="w-4 h-4" />
-          {loading ? 'Submitting...' : 'Submit'}
-        </button>
+  const AssetRequestForm = () => {
+    const [formData, setFormData] = useState({
+      assetCategory: '',
+      requiredDate: '',
+      returnDate: ''
+    });
 
-        {response && (
-          <div className="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200">
-            <h3 className="font-medium text-gray-700 mb-2">Response:</h3>
-            <p className="text-gray-800 whitespace-pre-line">{response}</p>
+    const [submitStatus, setSubmitStatus] = useState('idle'); // idle | submitting
+
+    const handleInputChange = (field, value) => {
+      setFormData(prev => ({
+        ...prev,
+        [field]: value
+      }));
+    };
+
+
+    const handleSubmitasset = async () => {
+      setSubmitStatus("submitting");
+      try {
+        const email = localStorage.getItem("userEmail"); // get saved email
+        const payload = { ...formData, email };
+
+        console.log("Submitting asset request:", payload);
+
+        const response = await axios.post(
+          "http://localhost:3000/request-asset",
+          payload,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        // ✅ Success toast
+        toast.success("Asset request submitted successfully!");
+        console.log("Response:", response.data);
+        setFormData({ assetCategory: '', requiredDate: '', returnDate: '' });
+      } catch (error) {
+        console.error("Error submitting request:", error);
+
+        // ✅ Error toast
+        const message =
+          error.response?.data?.error || "Error submitting asset request.";
+        toast.error(message);
+      } finally {
+        setSubmitStatus("idle");
+      }
+    };
+
+
+
+    return (
+      <div className="max-w-2xl mx-auto mt-6">
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="flex items-center mb-6">
+            <Package className="w-6 h-6 text-purple-600 mr-3" />
+            <h2 className="text-2xl font-bold text-gray-800">Asset Request</h2>
           </div>
-        )}
-      </div>
-    </div>
-  );
-};
 
-
- const AssetRequestForm = () => {
-  const [formData, setFormData] = useState({
-    assetCategory: '',
-    requestType: '',
-    assetDescription: '',
-    requiredDate: '',
-    budget: '',
-    justification: '',
-    specifications: ''
-  });
-
-  const [submitStatus, setSubmitStatus] = useState('idle'); // idle | submitting
-
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  const handleSubmit = async () => {
-    setSubmitStatus('submitting');
-    try {
-      console.log('Submitting asset request:', formData);
-      // call your backend API here
-      await new Promise(resolve => setTimeout(resolve, 1000)); // simulate async
-      alert('Asset request submitted successfully!');
-    } catch (error) {
-      console.error(error);
-      alert('Error submitting request.');
-    } finally {
-      setSubmitStatus('idle');
-    }
-  };
-
-  return (
-    <div className="max-w-2xl mx-auto mt-6">
-      <div className="bg-white rounded-xl shadow-lg p-8">
-        <div className="flex items-center mb-6">
-          <Package className="w-6 h-6 text-purple-600 mr-3" />
-          <h2 className="text-2xl font-bold text-gray-800">Asset Request</h2>
-        </div>
-
-        <div className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Asset Category</label>
               <select
@@ -298,105 +302,66 @@ const PolicyQueryForm = () => {
                 required
               >
                 <option value="">Select Category</option>
-                <option value="laptop">Laptop/Computer</option>
-                <option value="mobile">Mobile Phone</option>
-                <option value="monitor">Monitor/Display</option>
-                <option value="accessories">Accessories</option>
-                <option value="furniture">Furniture</option>
+                <option value="Dell Laptop Power Cord">Dell Laptop Power Cord</option>
+                <option value="Samsung Smartphone">Samsung Smartphone</option>
+                <option value="Logitech Wireless Mouse">Logitech Wireless Mouse
+                </option>
+                <option value="Laptop-Dell-123">Laptop-Dell-123</option>
+                <option value="Logitech Headset">Logitech Headset
+                </option>
                 <option value="software">Software License</option>
-                <option value="other">Other</option>
+
               </select>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Request Type</label>
-              <select
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                value={formData.requestType}
-                onChange={(e) => handleInputChange('requestType', e.target.value)}
-                required
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Required Date</label>
+                <input
+                  type="date"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  value={formData.requiredDate}
+                  onChange={(e) => handleInputChange('requiredDate', e.target.value)}
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Return Date</label>
+                <input
+                  type="date"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  value={formData.returnDate}
+                  onChange={(e) => handleInputChange('returnDate', e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="flex gap-4 pt-6">
+              <button
+                type="button"
+                onClick={() => console.log('Cancel pressed')}
+                className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
               >
-                <option value="">Select Type</option>
-                <option value="new">New Asset</option>
-                <option value="replacement">Replacement</option>
-                <option value="upgrade">Upgrade</option>
-                <option value="repair">Repair/Maintenance</option>
-              </select>
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleSubmitasset}
+                disabled={submitStatus === 'submitting'}
+                className="flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                <Send className="w-4 h-4" />
+                {submitStatus === 'submitting' ? 'Submitting...' : 'Submit Request'}
+              </button>
             </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Asset Description</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="Specific model, brand, or detailed description"
-              value={formData.assetDescription}
-              onChange={(e) => handleInputChange('assetDescription', e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Required Date</label>
-              <input
-                type="date"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                value={formData.requiredDate}
-                onChange={(e) => handleInputChange('requiredDate', e.target.value)}
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Estimated Budget</label>
-              <input
-                type="text"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="₹ (if known)"
-                value={formData.budget}
-                onChange={(e) => handleInputChange('budget', e.target.value)}
-              />
-            </div>
-          </div>
-
-         
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Additional Info</label>
-            <textarea
-              rows="3"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="Any specific technical requirements or preferences..."
-              value={formData.specifications}
-              onChange={(e) => handleInputChange('specifications', e.target.value)}
-            />
-          </div>
-
-          <div className="flex gap-4 pt-6">
-            <button
-              type="button"
-              onClick={() => console.log('Cancel pressed')}
-              className="flex-1 bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={submitStatus === 'submitting'}
-              className="flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              <Send className="w-4 h-4" />
-              {submitStatus === 'submitting' ? 'Submitting...' : 'Submit Request'}
-            </button>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
+
 
   const Dashboard = () => (
     <div className="max-w-6xl mx-auto">
@@ -409,7 +374,7 @@ const PolicyQueryForm = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
-        <div 
+        <div
           onClick={() => setActiveSection('leave')}
           className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 hover:shadow-lg transition-all cursor-pointer hover:scale-105"
         >
@@ -425,7 +390,7 @@ const PolicyQueryForm = () => {
           </div>
         </div>
 
-        <div 
+        <div
           onClick={() => setActiveSection('policy')}
           className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200 hover:shadow-lg transition-all cursor-pointer hover:scale-105"
         >
@@ -441,7 +406,7 @@ const PolicyQueryForm = () => {
           </div>
         </div>
 
-        <div 
+        <div
           onClick={() => setActiveSection('asset')}
           className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200 hover:shadow-lg transition-all cursor-pointer hover:scale-105"
         >
@@ -471,7 +436,7 @@ const PolicyQueryForm = () => {
   );
 
   return (
-    
+
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
@@ -495,7 +460,7 @@ const PolicyQueryForm = () => {
               Welcome, John Doe
             </div>
             <div>
-              <button className='bg-slate-300 p-3 rounded-3xl hover:bg-slate-400' onClick={()=>signout()}>Sign Out</button>
+              <button className='bg-slate-300 p-3 rounded-3xl hover:bg-slate-400' onClick={() => signout()}>Sign Out</button>
             </div>
           </div>
         </div>
@@ -515,5 +480,5 @@ const PolicyQueryForm = () => {
   );
 };
 
-    
+
 export default Employee;
