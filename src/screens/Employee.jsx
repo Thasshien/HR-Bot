@@ -5,13 +5,14 @@ import axios from 'axios';
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 import { App_Context } from '../context/Context';
+const url = 'http://localhost:3000';
 const Employee = () => {
   const { signout}= useContext(App_Context);
   const navigate = useNavigate(); 
   const [activeSection, setActiveSection] = useState('dashboard');
   const [formData, setFormData] = useState({});
   const [submitStatus, setSubmitStatus] = useState(null);
-
+  const token = localStorage.getItem("token");
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
@@ -48,10 +49,15 @@ const LeaveApplicationForm = () => {
   };
 
   const handleSubmit = async () => {
+    const token = localStorage.getItem("token");
     setSubmitStatus('submitting');
     try {
-      // Make your API call here
-      console.log('Submitting leave application:', formData);
+      let newurl = url + '/api/emp/leave';
+      const days = axios.post(newurl,formData,{
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Submitting leave application:', days);
+
     toast.success("Leave application submitted!"); 
       // Simulate API delay
       await new Promise(res => setTimeout(res, 1000));
@@ -200,8 +206,9 @@ const PolicyQueryForm = () => {
      try {
       // Replace this with your LLM API call
       
-      const res = await axios.post('http://localhost:3000/api/ask/ask',{ query });
-      setResponse(res.data.reply || 'No response received.');
+      const res = await axios.post('http://localhost:3000/api/ask/ask',{query});
+      setResponse(res.data.reply[0]?.text || 'No response received.');
+
     } catch (error) {
       console.error(error);
       setResponse('Error fetching response.');

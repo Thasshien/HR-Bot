@@ -29,6 +29,7 @@ export default function LoginPage() {
       axios.post(newUrl,credentials)
         .then((response) => {
           console.log("Logged in successfully!", response.data);
+          localStorage.setItem("token",response.data.token);
           navigate('/emp_dashboard');
         })
         .catch((error) => {
@@ -39,6 +40,7 @@ export default function LoginPage() {
       axios.post(newUrl,credentials)
         .then((response) => {
           console.log("Logged in successfully!", response.data);
+          localStorage.setItem("token",response.data.token);
           navigate('/hr_dashboard');
         })
         .catch((error) => {
