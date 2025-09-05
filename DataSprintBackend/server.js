@@ -12,17 +12,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn');
-const testBot = require('./test')
 const port = process.env.PORT || 3000;
 const populateDemoData = require("./populateDemoData");
 const axios = require("axios")
 connectDB();
-
+ //for sla monitoring (auto starts)
 // existing routes
 app.use('/api/emp', require('./routes/empRouter'));
 app.use('/api/hr', require('./routes/hrRouter'));
 app.use('/api/ask', require('./routes/rasaRouter'));
-
+app.use('/api/requests', require('./routes/requestRouter'));
 // test route
 app.get("/", (req, res) => {
   res.send("API Working");
@@ -32,12 +31,16 @@ const API_KEY = process.env.FRAPPE_KEY;
 const API_SECRET = process.env.FRAPPE_SECRET;
 const loginAdmin = async () => {
   try {
-    const response = await axios.post(`${FRAPPE_URL}/api/method/login`, {
-      usr: process.env.ADMIN_EMAIL,
-      pwd: process.env.ADMIN_PASSWORD
-    });
+    const response = await axios.get(`${process.env.FRAPPE_URL}/api/resource/Leave Application`, {
+    auth: {
+      username: process.env.FRAPPE_KEY,
+      password: process.env.FRAPPE_SECRET
+    }
+  });
     const sidCookie = response.headers['set-cookie'].find(c => c.startsWith('sid='));
+    console.log("sidCookie: ",sidCookie)
     global.adminSid = sidCookie.split(';')[0];
+    console.log(adminSid)
     console.log("Admin logged in, sid stored!");
   } catch (err) {
     console.error("Admin login failed:", err.response?.data || err.message);
@@ -46,6 +49,7 @@ const loginAdmin = async () => {
 
 // Call it once when server starts
 loginAdmin();
+require('./agents/slaChecker');
 // Endpoint to fetch all employees
 app.get('/employees', async (req, res) => {
   try {
@@ -203,7 +207,7 @@ app.post("/apply-leave-maternity", async (req, res) => {
     const submittedAt = leaveData.creation;
     console.log("Leave data",leaveData)
     console.log("Submitted at",submittedAt)
-    res.json({ 
+    res.json({  
       message: "Leave application created as draft", 
       leave: leaveData,
       submittedAt 
