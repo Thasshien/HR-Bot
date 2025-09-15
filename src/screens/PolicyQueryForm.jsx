@@ -14,9 +14,14 @@ const PolicyQueryForm = () => {
         setResponse('');
         console.log("User Query:", { query });
         try {
-
             const res = await axios.post('http://localhost:3000/api/ask/ask', { query });
-            setResponse(res.data.reply || 'No response received.');
+
+            // Convert Rasa array to string
+            const texts = Array.isArray(res.data.reply)
+                ? res.data.reply.map(r => r.text).join(' ')
+                : res.data.reply;
+
+            setResponse(texts || 'No response received.');
         } catch (error) {
             console.error(error);
             setResponse('Error fetching response.');
