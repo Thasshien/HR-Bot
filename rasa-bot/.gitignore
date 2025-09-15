@@ -24,6 +24,8 @@ models/                 # trained models
 results/                # test/eval results
 rasa.log                # rasa log file
 *.lock                  # lock files
+
+# Rasa cache & checkpoints
 .rasa/                  # internal rasa data
 .cache/                 # training cache
 .history/               # conversation history
@@ -34,7 +36,7 @@ rasa/nlu/cache/
 # -----------------------------
 # Sensitive config
 # -----------------------------
-credentials.yml         # contains API tokens (Slack, Telegram, etc.)
+credentials.yml         # API tokens (Slack, Telegram, etc.)
 endpoints.yml           # may contain sensitive URLs/secrets
 *.key
 *.pem
