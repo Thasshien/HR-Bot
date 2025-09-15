@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import OpenLeaves from "../components/OpenLeaves";
@@ -6,6 +6,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D'
 import ApprovedLeaves from "../components/ApprovedLeaves";
 import AssetManagement from "../components/AssetManagement";
 import Analytics from "../components/Analytics";
+import { App_Context } from '../context/Context'
 const SLA_HOURS = 48;
 
 const HRDashboard = () => {
