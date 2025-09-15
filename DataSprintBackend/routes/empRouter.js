@@ -1,12 +1,10 @@
 const express = require('express')
 const userRouter = express.Router()
-const auth = require("../middlewares/auth")
-const {loginUser , leaveReq} = require('../controllers/empController')
+const {leaveReq , maternityLeaveReq , reqAsset} = require('../controllers/empController')
 
-userRouter.post('/login',loginUser);
+userRouter.post('/apply-leave',leaveReq);
+userRouter.post('/apply-leave-maternity',maternityLeaveReq);
+userRouter.post('/request-asset',reqAsset);
 
-userRouter.use(auth)
-
-userRouter.post('/leave',leaveReq);
 
 module.exports = userRouter

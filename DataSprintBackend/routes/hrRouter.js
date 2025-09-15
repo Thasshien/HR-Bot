@@ -1,10 +1,10 @@
 const express = require('express')
 const userRouter = express.Router()
-const auth = require('../middlewares/auth.js')
-const {loginUser} = require('../controllers/hrController')
+const {leaveRequests, leaveApprovedRequests, assetMovements, getEmployees} = require('../controllers/hrController')
 
-userRouter.post('/login',loginUser)
-
-userRouter.use(auth);
+userRouter.get('/leave-requests',leaveRequests)
+userRouter.get('/leave-approved-requests',leaveApprovedRequests)
+userRouter.get('/asset-movements',assetMovements)
+userRouter.get('/get-employees',getEmployees)
 
 module.exports = userRouter

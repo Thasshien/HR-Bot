@@ -1,0 +1,96 @@
+version: "3.1"
+
+rules:
+# ---------------- Basic greetings ----------------
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Affirm user
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: Deny user
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- rule: Mood great response
+  steps:
+  - intent: mood_great
+  - action: utter_mood_great
+
+- rule: Mood unhappy response
+  steps:
+  - intent: mood_unhappy
+  - action: utter_mood_unhappy
+
+- rule: Bot challenge response
+  steps:
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+
+# ---------------- HR Policies ----------------
+- rule: Working hours query
+  steps:
+  - intent: working_hours_query
+  - action: utter_working_hours_query
+
+- rule: Remote work query
+  steps:
+  - intent: remote_work_query
+  - action: utter_remote_work_query
+
+- rule: Leave policy query
+  steps:
+  - intent: leave_policy_query
+  - action: utter_leave_policy_query
+
+- rule: Expense policy query
+  steps:
+  - intent: expense_policy_query
+  - action: utter_expense_policy_query
+
+- rule: Resignation policy query
+  steps:
+  - intent: resignation_policy_query
+  - action: utter_resignation_policy_query
+
+- rule: IT security query
+  steps:
+  - intent: it_security_query
+  - action: utter_it_security_query
+
+- rule: Emergency HR query
+  steps:
+  - intent: emergency_hr_query
+  - action: utter_emergency_hr_query
+
+- rule: Code of conduct query
+  steps:
+  - intent: code_of_conduct_query
+  - action: utter_code_of_conduct_query
+
+- rule: Benefits query
+  steps:
+  - intent: benefits_query
+  - action: utter_benefits_query
+
+# ---------------- Fallback ----------------
+- rule: Handle fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: Show all policies rule
+  steps:
+    - intent: show_all_policies
+    - action: utter_show_all_policies
+

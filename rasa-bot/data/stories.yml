@@ -1,0 +1,158 @@
+version: "3.1"
+
+stories:
+
+- story: greet and leave policy
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: leave_policy_query
+    - action: utter_leave_policy_query
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: casual leave query
+  steps:
+    - intent: leave_casual_query
+    - action: utter_leave_casual_query
+    - intent: affirm
+    - action: utter_affirm
+    - intent: deny
+    - action: utter_deny
+
+- story: sick leave query
+  steps:
+    - intent: leave_sick_query
+    - action: utter_leave_sick_query
+
+- story: earned leave query
+  steps:
+    - intent: leave_earned_query
+    - action: utter_leave_earned_query
+
+- story: maternity leave query
+  steps:
+    - intent: leave_maternity_query
+    - action: utter_leave_maternity_query
+
+- story: paternity leave query
+  steps:
+    - intent: leave_paternity_query
+    - action: utter_leave_paternity_query
+
+- story: payroll information
+  steps:
+    - intent: payroll_query
+    - action: utter_payroll_query
+    - intent: affirm
+    - action: utter_affirm
+    - intent: deny
+    - action: utter_deny
+
+- story: expense policy
+  steps:
+    - intent: expense_policy_query
+    - action: utter_expense_policy_query
+
+- story: benefits query
+  steps:
+    - intent: benefits_query
+    - action: utter_benefits_query
+
+- story: remote work query
+  steps:
+    - intent: remote_work_query
+    - action: utter_remote_work_query
+
+- story: working hours query
+  steps:
+    - intent: working_hours_query
+    - action: utter_working_hours_query
+
+- story: IT security query
+  steps:
+    - intent: it_security_query
+    - action: utter_it_security_query
+
+- story: code of conduct
+  steps:
+    - intent: code_of_conduct_query
+    - action: utter_code_of_conduct_query
+
+- story: resignation policy
+  steps:
+    - intent: resignation_policy_query
+    - action: utter_resignation_policy_query
+
+- story: emergency HR
+  steps:
+    - intent: emergency_hr_query
+    - action: utter_emergency_hr_query
+
+- story: insurance policy
+  steps:
+    - intent: insurance_policy_query
+    - action: utter_insurance_policy_query
+
+- story: training policy
+  steps:
+    - intent: training_policy_query
+    - action: utter_training_policy_query
+
+- story: promotion policy
+  steps:
+    - intent: promotion_policy_query
+    - action: utter_promotion_policy_query
+
+- story: probation policy
+  steps:
+    - intent: probation_policy_query
+    - action: utter_probation_policy_query
+
+- story: termination policy
+  steps:
+    - intent: termination_policy_query
+    - action: utter_termination_policy_query
+
+- story: grievance policy
+  steps:
+    - intent: grievance_policy_query
+    - action: utter_grievance_policy_query
+
+- story: asset request
+  steps:
+    - intent: asset_request_query
+    - action: utter_asset_request_query
+
+- story: public holidays
+  steps:
+    - intent: public_holidays_query
+    - action: utter_public_holidays_query
+
+- story: greet and mood great
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_great
+    - action: utter_mood_great
+
+- story: greet and mood unhappy
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_mood_unhappy
+    - intent: cheer_up
+    - action: utter_cheer_up
+    - intent: did_that_help
+    - action: utter_did_that_help
+
+- story: social check
+  steps:
+    - intent: social_check
+    - action: utter_social_check
+
+- story: bot challenge
+  steps:
+    - intent: bot_challenge
+    - action: utter_bot_challenge

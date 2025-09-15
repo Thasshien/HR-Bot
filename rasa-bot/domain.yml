@@ -1,0 +1,531 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - working_hours_query
+  - remote_work_query
+  - leave_policy_query
+  - expense_policy_query
+  - resignation_policy_query
+  - it_security_query
+  - emergency_hr_query
+  - code_of_conduct_query
+  - benefits_query
+  - cheer_up
+  - did_that_help
+  - social_check
+  - default
+  - policy_inquiry
+  - show_all_policies
+  - payroll_query
+  - training_policy_query
+  - promotion_policy_query
+  - probation_policy_query
+  - termination_policy_query
+  - grievance_policy_query
+  - insurance_policy_query
+  - leave_casual_query
+  - leave_sick_query
+  - leave_earned_query
+  - leave_maternity_query
+  - leave_paternity_query
+  - asset_request_query
+  - public_holidays_query
+
+responses:
+  utter_greet:
+    - text: |
+        Hello! How can I help you today?
+    - text: |
+        Hi there! Need any assistance?
+    - text: |
+        Hey! How’s it going? Can I help you with something?
+    - text: |
+        Greetings! How can I assist you today?
+    - text: |
+        Hello! Hope your day’s going well. What can I do for you?
+
+  utter_goodbye:
+    - text: |
+        Goodbye! Have a great day!
+    - text: |
+        See you later! Take care.
+    - text: |
+        Bye! Hope everything goes smoothly.
+    - text: |
+        Farewell! Let me know if you need help again.
+    - text: |
+        Catch you later! Have a good one.
+
+  utter_affirm:
+    - text: |
+        Great!
+    - text: |
+        Perfect!
+    - text: |
+        Sounds good!
+    - text: |
+        Absolutely!
+    - text: |
+        Yes, definitely!
+
+  utter_deny:
+    - text: |
+        Okay.
+    - text: |
+        No worries.
+    - text: |
+        Understood.
+    - text: |
+        Got it, thanks.
+    - text: |
+        Alright then.
+
+  utter_mood_great:
+    - text: |
+        Glad to hear that!
+    - text: |
+        Awesome! Keep it up.
+    - text: |
+        That’s fantastic!
+    - text: |
+        Wonderful! Happy to hear it.
+    - text: |
+        Great vibes! Keep rocking.
+
+  utter_mood_unhappy:
+    - text: |
+        I'm sorry to hear that. Hope things get better soon.
+    - text: |
+        Oh no! I hope your day improves.
+    - text: |
+        That’s tough. Wishing you better times ahead.
+    - text: |
+        I understand. Take care of yourself.
+    - text: |
+        I hope things turn around soon!
+
+  utter_bot_challenge:
+    - text: |
+        I am a bot here to help you with HR policies.
+    - text: |
+        Yes, I’m a bot. I can assist with HR queries.
+    - text: |
+        I’m an automated assistant. How can I help you with policies?
+    - text: |
+        I’m a chatbot! Ask me anything about HR rules.
+    - text: |
+        Correct, I’m a bot. What HR information do you need?
+
+  utter_working_hours_query:
+    - text: |
+        Standard working hours are 9:00 AM – 6:00 PM, Monday to Friday. Our office hours are 9 AM to 6 PM on weekdays. You are expected to work from 9 AM to 6 PM, Monday to Friday. Regular working hours are 9–6, with a 1-hour lunch break. The work schedule is 9:00 AM to 6:00 PM, Monday through Friday.
+
+
+  utter_remote_work_query:
+    - text: |
+        Employees may work from home up to 2 days per week with manager approval. You can WFH 2 days a week if your manager approves, and remote work is allowed twice a week with permission from your supervisor. Work from home is permitted 2 days weekly after approval, and you may work remotely two days per week with manager consent.
+
+  utter_expense_policy_query:
+    - text: |
+        During official trips, employees are entitled to a food allowance of ₹800 per day, and hotel stays are reimbursed based on location. Travel expenses, including cab fares, are covered as per company policy. All allowances for food, hotel, and travel require submission of receipts within 30 days. Expenses must be submitted on time, and personal expenses such as alcohol or shopping are not reimbursed. All travel and food reimbursements follow the company’s rules.
+
+  utter_resignation_policy_query:
+    - text: |
+        Employees must provide a one-month notice before resigning and submit their resignation through the HR portal or via email. All company assets must be returned, pending leaves settled, and exit interviews completed. Proper resignation procedures should be followed, ensuring all dues are cleared before leaving
+
+  utter_it_security_query:
+    - text: |
+        IT Security: Keep your passwords confidential, lock your computer when away, and use company devices responsibly for official work. Unauthorized software installation is prohibited, and company systems must be used only for official purposes. Always follow IT security rules, use VPNs as required, and report any security breaches immediately.
+
+  utter_emergency_hr_query:
+    - text: |
+        Emergency HR: In case of emergencies, contact HR immediately for support. HR can guide you through emergency leave, counseling, or other urgent matters. All communications with HR are confidential and treated seriously, making HR your first point of contact during any urgent situation.
+
+  utter_code_of_conduct_query:
+    - text: |
+        Code of Conduct: Treat colleagues with respect and professionalism, and strictly avoid discrimination, harassment, or bullying. Follow all company policies, maintain workplace ethics, and ensure confidential information is never shared externally. Adhere to the company’s code of conduct at all times.
+
+  utter_benefits_query:
+    - text: |
+        Employee Benefits: Your monthly salary is provided as per your employment agreement, and performance bonuses are awarded based on yearly evaluations. Health insurance covers you and eligible dependents, while Provident Fund and other statutory benefits are applied according to regulations. Additional perks include wellness programs, team events, and learning opportunities to support employee growth and well-being.
+
+  utter_cheer_up:
+    - text: |
+        I'm sorry you're feeling down. I hope things improve soon!
+    - text: |
+        I hope your day gets better! Stay strong.
+    - text: |
+        Things will get better, hang in there!
+    - text: |
+        Feeling low is normal. Hope you feel better soon.
+    - text: |
+        Cheer up! Tomorrow’s a new day.
+
+  utter_did_that_help:
+    - text: |
+        Did that help you feel better?
+    - text: |
+        Was that information helpful?
+    - text: |
+        Did this resolve your issue?
+    - text: |
+        Did my response help?
+    - text: |
+        Is that what you were looking for?
+
+  utter_social_check:
+    - text: |
+        Yes, we're good! How can I help you today?
+    - text: |
+        All good! Need any assistance?
+    - text: |
+        Everything’s fine here! What about you?
+    - text: |
+        I’m doing well! How are you feeling today?
+    - text: |
+        All smooth! How’s your day going?
+    - text: |
+        Feeling great! Need help with anything?
+    - text: |
+        We’re chill! What’s up on your side?
+    - text: |
+        Everything’s straight! How can I assist you?
+    - text: |
+        Good vibes only! How can I help?
+    - text: |
+        All set here! What can I do for you?
+    - text: |
+        Everything’s fine, thanks for asking! Any questions?
+    - text: |
+        I’m solid! How’s everything with you?
+    - text: |
+        All good fam! Need anything from me?
+    - text: |
+        We’re vibin’! How’s your day treating you?
+    - text: |
+        Everything’s all right! How can I support you today?
+    - text: |
+        Feeling nice today! Need any guidance?
+    - text: |
+        Everything’s cool! How may I assist you?
+    - text: |
+        We’re good! Got any queries for me?
+    - text: |
+        All smooth today! What can I help with?
+    - text: |
+        Everything’s fine here! How about your side?
+    - text: |
+        All straight! Need some info or help?
+    - text: |
+        Everything’s chill! What can I do for you?
+    - text: |
+        Good day! How can I assist you?
+    - text: |
+        I’m doing well, thanks! Need any support?
+    - text: |
+        All good! Let me know if you have any questions.
+    - text: |
+        Everything’s solid here! What can I help with?
+    - text: |
+        We’re all set! Any guidance you need?
+    - text: |
+        Everything’s smooth! How can I help you today?
+    - text: |
+        Feeling great! Got anything you need assistance with?
+    - text: |
+        All chill here! How may I assist you today?
+    - text: |
+        Everything’s fine, thanks! How can I support you?
+    - text: |
+        All good! Need some help with HR policies?
+    - text: |
+        Everything’s straight! How’s your day going?
+    - text: |
+        We’re good here! Anything you want to know?
+    - text: |
+        All smooth! How can I guide you today?
+    - text: |
+        Everything’s solid! Need any info?
+    - text: |
+        Feeling nice today! What can I help you with?
+    - text: |
+        All right here! Got any questions for me?
+    - text: |
+        Everything’s cool! How may I assist?
+    - text: |
+        We’re vibin’ here! How’s everything on your side?
+    - text: |
+        Everything’s fine! How can I be of help today?
+
+  utter_policy_inquiry:
+    - text: |
+        Sure! I can help you with HR policies. What would you like to know — leave, expenses, or something else?
+    - text: |
+        Absolutely! I can provide details on company policies. Are you asking about leave, benefits, or something else?
+    - text: |
+        Of course! I can explain the HR rules. Do you want to know about working hours, expenses, or other policies?
+    - text: |
+        I can help with HR policies. Which topic are you interested in — leave, remote work, or something else?
+    - text: |
+        Yes, I can guide you on company policies. Are you asking about leave, expenses, or IT/security policies?
+
+  utter_default:
+    - text: |
+        Sorry, I didn’t understand that. Can you rephrase?
+    - text: |
+        I’m not sure I got that. Could you clarify?
+    - text: |
+        Hmm, I didn’t quite catch that. Can you say it differently?
+    - text: |
+        Apologies, I’m not sure what you mean. Can you explain?
+    - text: |
+        I didn’t understand your question. Can you try again?
+    - text: |
+        Can you phrase that differently? I want to help.
+    - text: |
+        I’m having trouble understanding. Could you reword it?
+    - text: |
+        Oops, I didn’t get that. Can you clarify please?
+    - text: |
+        I’m not certain what you meant. Can you restate it?
+    - text: |
+        Sorry, I didn’t understand. Can you tell me in another way?
+    - text: |
+        Hmm, that’s confusing to me. Could you explain differently?
+
+  utter_payroll_query:
+    - text: "Your monthly salary is processed as per the company schedule and is credited on the last working day of the month."
+    - text: "You can check your payslip on the HR portal, which includes a detailed breakdown of basic pay, allowances, deductions, and any applicable taxes or bonuses."
+    - text: "Payroll is generated automatically each month after approvals from finance and HR."
+    - text: "Salary disbursement follows company policies and banking norms."
+    - text: "Employees receive their pay according to the official payroll calendar, even if on leave."
+    - text: "Payroll reflects any reimbursements, overtime, or extra hours worked."
+    - text: "HR and finance ensure confidentiality and accuracy, and any discrepancies or issues should be reported immediately."
+    - text: "Salary statements are stored digitally for future reference."
+    - text: "Employees are encouraged to review payslips for correctness."
+    - text: "Payroll is aligned with statutory compliance, including PF and other contributions."
+    - text: "Payroll may include performance-related bonuses if applicable."
+    - text: "Employees can verify payments and request detailed statements from HR."
+    - text: "Employees stay informed of any updates or changes via HR communications."
+    - text: "Ensuring correct bank details is the employee’s responsibility for smooth processing."
+    - text: "Payroll processes are automated but reviewed by finance for accuracy."
+
+
+  utter_training_policy_query:
+    - text: |
+        Training and Development: Employees are encouraged to attend internal and external training programs to enhance skills and support career growth. HR announces available workshops, e-learning courses, and mandatory compliance training regularly, and employees can request additional training relevant to their role. Attendance in mandatory training is recorded in profiles, and managers track training progress and completion for their teams. Training programs are approved by managers and HR, and resources are available through the company LMS, including online courses and certifications. Employees can suggest training topics to HR, and schedules are communicated via email or internal portals. Participation in skill enhancement programs, technical training aligned with department objectives, soft skill workshops for communication and teamwork, and leadership programs for high-potential employees are encouraged. Employees must complete mandatory training before promotion eligibility, and training completion may affect performance appraisals. HR monitors compliance, maintains training records confidentially, and provides guidance on selecting relevant courses. Employees are responsible for tracking training hours, completing self-paced courses on time, and reporting completed external courses to HR. Optional training programs are recognized, and employees may be rewarded for completing them. Managers approve attendance in external sessions, and cross-departmental training is encouraged for knowledge sharing. Onboarding includes structured training plans for new hires, and new software tool training is provided as needed. Training content is updated regularly to remain relevant, and participation is logged in HR records for future reference. Employees are encouraged to take certifications to grow their careers, share learned skills internally, and attendance and participation are tracked by managers. HR maintains a catalog of approved training providers, evaluates training effectiveness via feedback surveys, and schedules sessions considering team workload. Employee development is a key goal of the training policy, and all employees have equal opportunity to attend approved courses. Training policy ensures skill alignment with company objectives, aiming to improve productivity, efficiency, and professional growth.
+
+  utter_promotion_policy_query:
+    - text: "Employees are considered for promotion based on performance reviews. Promotions require meeting targets and competency requirements. HR announces promotion cycles annually or bi-annually. Managers evaluate eligibility for promotion within their teams. Promotions are merit-based and follow company guidelines."
+    - text: "Performance appraisals are the primary basis for promotion decisions. Employees must demonstrate consistent high performance to be eligible. Promotion policy details are available in the employee handbook. Employees can discuss career progression with their managers. Promotions may include salary increases and new responsibilities."
+    - text: "HR and management jointly approve all promotions. Internal job postings are available for employees seeking promotion. Employees are encouraged to acquire skills relevant for promotion. Promotions may vary depending on department needs. Employees receive formal notification when promoted."
+    - text: "Promotions follow a transparent evaluation process. Exceptional performance may lead to off-cycle promotions. Employees must meet tenure requirements for promotion eligibility. Managers provide feedback and guidance for promotion readiness. HR maintains records of all promotions and salary adjustments."
+    - text: "Promotion policy encourages fair and equal opportunity. Career development discussions are held prior to promotion cycles. Employees may appeal promotion decisions through HR. Promotions reflect both performance and potential. Employees are recognized for achievements in promotion process."
+    - text: "Promotions involve increased responsibilities and accountability. HR ensures promotion policies comply with labor regulations. Employees must complete training programs relevant to their role before promotion. Performance metrics are clearly defined for promotion eligibility. Promotions are designed to retain top talent."
+    - text: "HR communicates promotion guidelines to all employees. Managers may mentor employees for career progression. Promotion decisions are based on objective criteria. Employees receive feedback on areas to improve for future promotion. Promotion policy is reviewed and updated periodically."
+    - text: "Employees are encouraged to set goals for career advancement. Promotions are not guaranteed and depend on company performance. Employees can track promotion eligibility via HR portal. All promotions are documented and communicated formally. HR ensures equal opportunity for promotion across departments."
+    - text: "Promotions may be temporary or permanent depending on the role. Employees should maintain performance standards to remain eligible. Promotions aim to motivate employees and recognize contribution. HR handles queries regarding promotion criteria. Managers assess employees’ readiness for promotion."
+    - text: "Promotions may include job title changes and benefits adjustments. Employees are encouraged to take initiative for growth. Promotion cycles are clearly communicated by HR in advance. Employees who consistently perform well are prioritized for promotion."
+
+
+  utter_probation_policy_query:
+    - text: |
+        All new employees are on probation for a specified period.
+        Probation duration varies depending on role and contract.
+        During probation, performance and conduct are closely monitored.
+        HR provides feedback during probation reviews.
+        Probation completion is required for confirmation as permanent employee.
+        Employees on probation receive mentorship and guidance from managers.
+        Probation terms are communicated at the time of joining.
+        Probationary employees may be given training to improve skills.
+        Termination during probation can occur if performance is unsatisfactory.
+        Probation review meetings are scheduled before completion.
+        Feedback from peers and managers contributes to probation assessment.
+        Employees must meet performance goals to successfully complete probation.
+        HR maintains records of probation assessments.
+        Probation policies are aligned with labor laws.
+        Probationary employees are entitled to company benefits as per policy.
+        Probation may include a reduced notice period.
+        Probation evaluation focuses on performance, attendance, and behavior.
+        Employees can request feedback during probation.
+        HR communicates the probation completion decision formally.
+        Probation duration is specified in the employment contract.
+        Employees can appeal probation outcomes to HR.
+        Managers track progress and provide guidance throughout probation.
+        Probation is a period for mutual assessment of fit and expectations.
+        Employees are informed of areas needing improvement during probation.
+        Confirmation as a permanent employee is subject to probation evaluation.
+        HR ensures fairness and transparency in probation assessment.
+        Probation period may be extended if required.
+        Probation is an opportunity to adapt to company culture.
+        Probationary employees are expected to follow company policies.
+        Feedback from probation is documented and shared.
+        Probation policy protects both employee and employer interests.
+        Employees are encouraged to ask questions during probation.
+        Probation review includes evaluation of skills, attitude, and performance.
+        Probation assessment is conducted by HR and reporting manager.
+        HR communicates probation outcomes clearly and timely.
+        Employees may receive additional support during probation if needed.
+        Probation period starts from the joining date.
+        Probation evaluation ensures alignment with role expectations.
+        Probation policy is documented in employee handbook.
+        Employees may be terminated during probation for non-performance.
+        Completion of probation is a prerequisite for promotion eligibility.
+        Probation policies comply with statutory regulations.
+        Managers mentor probationary employees to help them succeed.
+        HR can answer questions regarding probation policies.
+        Probation period may differ for different job levels.
+        Employees are expected to actively participate in probation review meetings.
+        Probation assessment includes evaluation of attitude, adaptability, and performance.
+        Probation provides a clear path to permanent employment.
+
+
+  utter_termination_policy_query:
+    - text: |
+        Employees may be terminated following company and legal guidelines.
+        Termination can occur due to performance, misconduct, or redundancy.
+        HR provides formal notice and employees receive final pay.
+        Termination may be immediate for serious misconduct.
+        Exit interviews are conducted and company property must be returned.
+        HR guides on post-termination benefits and employees can appeal decisions.
+        Policies comply with labor laws and protect both employee and company rights.
+        Severance may apply depending on tenure and contract.
+        Managers are involved in performance-based decisions.
+        Termination can be voluntary or involuntary.
+        Employees are informed about reasons and HR maintains confidentiality.
+        Career support or references may be provided post-termination.
+        Approval from HR and management is required.
+        Pending tasks, financial, and administrative clearances must be completed.
+        Legal requirements are strictly followed and feedback is provided.
+        Employees are encouraged to participate in exit interviews.
+        Records are maintained for audit and HR ensures a smooth transition.
+        Employees may assist in knowledge transfer before leaving.
+        Termination is documented in writing; notice period may be negotiated.
+        Decisions are based on facts and performance; guidance on benefits is provided.
+        HR communicates procedures clearly and ensures non-discriminatory practices.
+        Managers may provide a performance summary and process involves approvals.
+        Employees may leave with references if amicable; support for career transition is available.
+        Policies are in the handbook; exit formalities must be complied with.
+        Final settlements are processed as per policy and documents can be requested.
+        Termination can impact future employment references and legal obligations are met.
+        Employees may appeal decisions through HR channels.
+
+
+  utter_grievance_policy_query:
+    - text: |
+        Employees can raise grievances regarding work conditions or colleagues.
+        HR handles all grievances confidentially and objectively.
+        Employees are encouraged to report issues promptly via email, portal, or in person.
+        HR provides timely updates and unresolved grievances may be escalated.
+        Grievance policy ensures non-retaliation and managers are trained professionally.
+        Harassment or discrimination complaints are prioritized, and mediation may be requested.
+        Resolution is documented for transparency and HR guides on formal complaints.
+        Employees may remain anonymous; grievances are investigated promptly and fairly.
+        HR maintains confidentiality, informs employees of outcomes, and retaliation is prohibited.
+        Policy applies to workplace behavior, safety, and conduct; appeals are possible.
+        HR supports employees and management, documentation is maintained, and external support may be sought.
+        Managers work with HR to resolve conflicts amicably; open communication is encouraged.
+        Employees can raise grievances without fear and HR ensures fair investigation.
+        Updates on investigations are possible and all proceedings comply with labor laws.
+        HR monitors trends, employees may suggest policy improvements, and grievance policy is included in onboarding.
+        Mediation and counseling may be offered; HR tracks resolution time and serious complaints can be escalated.
+        Managers provide support to prevent recurrence and employees are encouraged to document incidents.
+        HR offers guidance on conflict resolution, promotes respectful workplace, and ensures equitable treatment.
+        Employees may request status updates, participate in grievance committee meetings, and receive training to prevent future issues.
+
+  utter_insurance_policy_query:
+    - text: |
+        Employees are provided with health insurance as per company policy.
+        Insurance covers eligible dependents and HR shares provider details and coverage.
+        Claims must be submitted through designated channels; policies include medical, accidental, and life coverage.
+        Employees receive insurance cards and HR provides guidance on claims.
+        Coverage begins from joining date; additional voluntary plans may be chosen.
+        Renewals are handled automatically; changes in dependents or status must be informed.
+        Coverage is subject to company terms and legal regulations; reminders are sent for claims.
+        Employees may contact HR for clarifications; policies include preventive care and wellness benefits.
+        Claims must be filed within stipulated time; exclusions and limitations are communicated.
+        HR ensures timely processing; insurance includes emergency medical support.
+        Rejected claims may be appealed; policies are reviewed periodically.
+        HR maintains confidential records and employees must follow policy terms for approval.
+        Coverage includes hospitalizations, surgeries, dental, vision, domestic and international treatment.
+        HR conducts sessions on benefits and employees are encouraged to understand their coverage.
+        Employees may opt for higher coverage with additional premium; HR coordinates claim settlements.
+        Claims require supporting documents; employees must notify HR in emergencies.
+        Insurance protects against financial risks; employees use services responsibly.
+        HR provides policy booklets; policies cover pre-existing conditions and claims follow company rules.
+        Reimbursements for approved medical expenses are possible; wellness and preventive care are supported.
+        Feedback is reviewed to improve offerings; forms must be submitted accurately and on time.
+        Policies outline limits, deductibles, and co-payments; HR ensures awareness of claim procedures.
+        Employees can contact provider directly; coverage continues during employment.
+        Updates are communicated by HR; policy is included in handbook.
+        HR supports routine and emergency claims; employees may enroll in supplemental plans if eligible.
+
+  utter_leave_policy_query:
+    - text: |
+        Casual Leave (CL): 12 days/year, non-carry forward.
+        Sick Leave (SL): 12 days/year, doctor certificate required if >2 days.
+        Earned Leave (EL): 18 days/year, can carry forward up to 45 days.
+        Maternity Leave: 26 weeks (female employees, 1-year service).
+        Paternity Leave: 10 working days within 6 months of childbirth.
+        Public Holidays: As per HR calendar.
+        Loss of Pay (LOP) applied if leaves are exhausted.
+
+  utter_leave_casual_query:
+    - text: "Casual Leave (CL): 12 days/year, non-carry forward."
+
+  utter_leave_sick_query:
+    - text: "Sick Leave (SL): 12 days/year, doctor certificate required if more than 2 days."
+
+  utter_leave_earned_query:
+    - text: "Earned Leave (EL): 18 days/year, can carry forward up to 45 days."
+
+  utter_leave_maternity_query:
+    - text: "Maternity Leave: 26 weeks (female employees, 1-year service)."
+
+  utter_leave_paternity_query:
+    - text: "Paternity Leave: 10 working days within 6 months of childbirth."
+
+  utter_asset_request_query:
+    - text: |
+        To request new company assets such as laptops, monitors, or other equipment, please submit a request through the IT/Asset portal. Manager approval is required.
+    - text: |
+        You can get new assets based on role and availability. Raise a request via the HR or IT portal for processing.
+    - text: |
+        New assets are issued after manager approval. Please follow the official process in the IT/Asset request system.
+    - text: |
+        For requesting company equipment, fill out the request form in the HR/IT portal. Ensure your manager has approved it.
+    - text: |
+        All asset requests (laptops, peripherals, etc.) must be submitted via the IT/Asset portal. Approval from your manager is mandatory.
+
+  utter_public_holidays_query:
+    - text: |
+        Public Holidays: The company observes all public holidays as per the HR calendar. You can view the full list on the HR portal.
+    - text: |
+        Company Public Holidays are listed in the HR calendar. Please check the portal for dates applicable this year.
+    - text: |
+        All public holidays follow the HR calendar. You can access the calendar through the HR system to see the complete schedule.
+    - text: |
+        Public holidays are granted according to the HR calendar. For details, refer to the HR portal or internal announcements.
+
+  utter_show_all_policies:
+    - text: |
+        Here are all HR policies you can ask about:
+        - Leave policies
+        - Expense policies
+        - Training policies
+        - Promotion policies
+        - Probation policies
+        - Termination policies
+        - Payroll policies
+        - Insurance policies
+        - IT/security policies
+        - Emergency HR policies
+        - Public holidays
+        - Asset request policies

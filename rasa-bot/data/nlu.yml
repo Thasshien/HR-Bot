@@ -1,0 +1,2564 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - hiya
+    - greetings
+    - hey bot
+    - hello bot
+    - hi bot
+    - good day
+    - hey HR bot
+    - morning!
+    - afternoon!
+    - evening!
+    - what's up
+    - howdy
+    - yo
+    - hi there!
+    - hello there!
+    - hey there!
+    - greetings HR
+    - hey HR
+    - good morning HR
+    - good evening HR
+    - hi HR
+    - hello HR
+    - hiya HR
+    - hey buddy
+    - hello buddy
+    - hi buddy
+    - morning buddy
+    - afternoon buddy
+    - evening buddy
+    - hello friend
+    - hi friend
+    - hey friend
+    - greetings friend
+    - hey dude
+    - hi dude
+    - hello dude
+    - good morning dude
+    - good evening dude
+    - hey there HR
+    - hi there HR
+    - hello there HR
+    - morning HR
+    - afternoon HR
+    - evening HR
+    - hey team
+    - hi team
+    - hello team
+    - good morning team
+    - good evening team
+    - hey folks
+    - hi folks
+    - hello folks
+    - good day folks
+    - greetings folks
+    - hey everyone
+    - hi everyone
+    - hello everyone
+    - good morning everyone
+    - good evening everyone
+    - hi all
+    - hello all
+    - hey all
+    - morning all
+    - afternoon all
+    - evening all
+    - hello HR bot
+    - hi HR bot
+    - hey HR bot
+    - greetings HR bot
+    - good day HR bot
+    - good morning HR bot
+    - good evening HR bot
+    - hey chatbot
+    - hi chatbot
+    - hello chatbot
+    - morning chatbot
+    - afternoon chatbot
+    - evening chatbot
+    - greetings chatbot
+    - hiya chatbot
+    - hey there chatbot
+    - hello there chatbot
+    - good morning chatbot
+    - good evening chatbot
+    - hi there bot
+    - hello there bot
+    - hey there bot
+    - good day bot
+    - good morning bot
+    - good evening bot
+    - hey bot!
+    - hi bot!
+    - hello bot!
+    - morning bot!
+    - afternoon bot!
+    - evening bot!
+    - greetings bot!
+    - hiya bot!
+    - hey HR friend
+    - hi HR friend
+    - hello HR friend
+    - good morning HR friend
+    - good evening HR friend
+    - hey buddy bot
+    - hi buddy bot
+    - hello buddy bot
+    - good day buddy bot
+    - good morning buddy bot
+    - good evening buddy bot
+     - yo
+    - heyyy
+    - sup
+    - hey dude
+    - heyyy there
+    - wassup
+    - hi fam
+    - heyo
+    - howdy
+    - yo yo
+    - Hello
+    - Hi there
+    - Good morning
+    - Good afternoon
+    - Hey
+    - Hi
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - see ya
+    - catch you later
+    - ciao
+    - have a nice day
+    - take care
+    - farewell
+    - talk later
+    - bye bye
+    - peace out
+    - adios
+    - later
+    - good night
+    - night!
+    - leaving now
+    - see you around
+    - cya
+    - see you soon
+    - bye HR
+    - goodbye HR
+    - see ya HR
+    - catch you later HR
+    - take care HR
+    - farewell HR
+    - bye buddy
+    - goodbye buddy
+    - see you buddy
+    - later buddy
+    - peace buddy
+    - bye bot
+    - goodbye bot
+    - see you bot
+    - bye all
+    - see you all
+    - bye everyone
+    - goodbye everyone
+    - bye folks
+    - goodbye folks
+    - see ya folks
+    - farewell folks
+    - bye HR bot
+    - goodbye HR bot
+    - see ya HR bot
+    - take care HR bot
+    - see you around HR bot
+    - bye chatbot
+    - goodbye chatbot
+    - see you chatbot
+    - bye friend
+    - goodbye friend
+    - see you friend
+    - bye team
+    - goodbye team
+    - see you team
+    - bye mate
+    - goodbye mate
+    - see you mate
+    - catch you mate
+    - bye dude
+    - goodbye dude
+    - see you dude
+    - later dude
+    - take care dude
+    - bye pal
+    - goodbye pal
+    - see you pal
+    - bye buddy bot
+    - goodbye buddy bot
+    - see you buddy bot
+    - bye buddy HR
+    - goodbye buddy HR
+    - see you buddy HR
+    - take care buddy HR
+    - farewell buddy HR
+    - bye everyone HR
+    - goodbye everyone HR
+    - see you everyone HR
+    - bye folks HR
+    - goodbye folks HR
+    - see you folks HR
+    - peace out
+    - catch ya later
+    - cya
+    - bye fam
+    - laters
+    - see ya around
+    - peace
+    - I’m out
+    - bye bye
+    - deuces
+    - Bye
+    - See you later
+    - Goodbye
+    - Catch you later
+    - Talk to you soon
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - absolutely
+    - sure
+    - yeah
+    - yep
+    - right
+    - totally
+    - agreed
+    - affirmative
+    - definitely
+    - certainly
+    - exactly
+    - fine
+    - okay
+    - sure thing
+    - ofc
+    - ya
+    - yah
+    - ya sure
+    - yes please
+    - yes of course
+    - perfect
+    - alright
+    - ok
+    - ok sure
+    - sounds good
+    - agreed, thank you
+    - yes indeed
+    - yeah sure
+    - absolutely yes
+    - yes correct
+    - fine with me
+    - agreed yes
+    - yes perfect
+    - ok then
+    - yes right
+    - sure yes
+    - affirmative yes
+    - exactly yes
+    - yes, thank you
+    - yes sure thing
+    - definitely yes
+    - yes absolutely
+    - correct yes
+    - ok got it
+    - yes ok
+    - sure okay
+    - yes okay
+    - yes good
+    - yes, that's right
+    - yes that's fine
+    - yes exactly
+    - perfect yes
+    - agreed perfectly
+    - yes totally
+    - fine yes
+    - sure, agreed
+    - yes that's correct
+    - yes indeed, thanks
+    - yes thanks
+    - sure thing yes
+    - absolutely agreed
+    - yes ok sure
+    - yes indeed ok
+    - yes alright
+    - agreed, perfect
+    - sure, fine
+    - ok yes
+    - yes, agreed
+    - yes exactly right
+    - yes sure thing
+    - fine ok
+    - yes perfect, thanks
+    - yes alright, thanks
+    - okay agreed
+    - yes indeed, perfect
+    - yes totally agree
+    - yes fine
+    - yes absolutely perfect
+    - yes sure okay
+    - agreed, absolutely
+    - yes, perfectly
+    - yes, totally
+    - yes indeed fine
+    - yes, ok perfect
+    - yes correct, thanks
+    - yes, that's correct
+    - yass
+    - yep
+    - fo sho
+    - duh
+    - heck yeah
+    - totally
+    - for sure
+    - bet
+    - okie
+    - aye
+    - Yes
+    - Sure
+    - Absolutely
+    - Definitely
+    - That’s correct
+    - Sounds good
+
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - nah
+    - never ever
+    - absolutely not
+    - not at all
+    - negative
+    - not correct
+    - no thanks
+    - not sure
+    - no idea
+    - not interested
+    - I don't agree
+    - not exactly
+    - no chance
+    - not at all, thanks
+    - no, thanks
+    - nah, thanks
+    - never mind
+    - no way jose
+    - not likely
+    - no way dude
+    - nope, thanks
+    - never okay
+    - nah okay
+    - no thanks, bot
+    - no way HR
+    - never ever HR
+    - not correct HR
+    - nah HR
+    - nope HR
+    - no way buddy
+    - nope buddy
+    - no thanks buddy
+    - never mind buddy
+    - no way chatbot
+    - nah chatbot
+    - nope chatbot
+    - negative chatbot
+    - no way friend
+    - nope friend
+    - nah friend
+    - not sure friend
+    - I don't think so friend
+    - never ever friend
+    - not correct buddy
+    - no way team
+    - nope team
+    - nah team
+    - not at all team
+    - never ever team
+    - no thanks team
+    - no idea team
+    - nah bot
+    - nope bot
+    - no way bot
+    - never ever bot
+    - negative bot
+    - nah HR bot
+    - nope HR bot
+    - no way HR bot
+    - never ever HR bot
+    - no thanks HR bot
+    - nope buddy bot
+    - nah buddy bot
+    - no way buddy bot
+    - never ever buddy bot
+    - nah
+    - nope
+    - nuh-uh
+    - no way
+    - not really
+    - negative
+    - hell nah
+    - nvm
+    - pass
+    - na
+    - No
+    - Not really
+    - I don’t think so
+    - Nope
+    - That’s wrong
+
+- intent: mood_great
+  examples: |
+    - feeling amazing
+    - super happy
+    - I am on top of the world
+    - wonderful day
+    - great mood
+    - I feel awesome
+    - fantastic
+    - feeling perfect
+    - absolutely amazing
+    - extremely good
+    - very happy
+    - so great
+    - loving life
+    - so happy
+    - perfect day
+    - amazing vibes
+    - feeling wonderful
+    - excellent
+    - I am ecstatic
+    - in high spirits
+    - I feel fantastic
+    - so excited
+    - very good
+    - extremely happy
+    - so wonderful
+    - feeling incredible
+    - I am joyful
+    - wonderful mood
+    - very joyful
+    - feeling blessed
+    - happy as ever
+    - great day
+    - feeling energized
+    - on cloud nine
+    - over the moon
+    - full of joy
+    - feeling superb
+    - feeling cheerful
+    - fantastic mood
+    - I am delighted
+    - feeling fantastic today
+    - today is wonderful
+    - I feel great
+    - extremely excited
+    - loving today
+    - feeling marvelous
+    - thrilled
+    - so thrilled
+    - super stoked
+    - ecstatic today
+    - extremely cheerful
+    - I am smiling
+    - extremely delighted
+    - cheerful mood
+    - in a great mood
+    - feeling awesome today
+    - wonderful vibes
+    - so marvelous
+    - extremely happy today
+    - joyous
+    - I am feeling very good
+    - amazing day
+    - happy today
+    - top of the world today
+    - feeling fantastic mood
+    - thrilled today
+    - excited
+    - feeling ecstatic
+    - happy vibes
+    - very thrilled
+    - full of energy
+    - very cheerful
+    - so excited today
+    - marvelous
+    - extremely joyful
+    - feeling super
+    - I feel amazing today
+    - amazing vibes today
+    - fantastic day
+    - thrilled vibes
+    - wonderful day today
+    - feeling perfect today
+    - super cheerful
+    - happy mood
+    - cheerful today
+    - excited mood
+    - ecstatic mood
+    - delighted today
+    - joyous mood
+    - thrilled mood
+    - excellent mood
+    - feeling amazing vibes
+    - top mood
+    - energetic
+    - ecstatic vibes
+    - so wonderful today
+    - awesome mood
+    - happy as ever today
+    - joyous today
+    - very excited
+    - thrilled as ever
+    - super happy today
+    - absolutely cheerful
+    - joyful day
+    - ecstatic day
+    - perfect vibes
+    - wonderful energy
+    - amazing energy
+    - fantastic energy
+    - vibin
+    - chillin
+    - lit
+    - feeling fab
+    - killin it
+    - awesome sauce
+    - on top of the world
+    - hype
+    - good vibes
+    - feelin great
+    - I’m feeling good
+    - Everything is fine
+    - Doing great
+    - Feeling happy
+    - I’m okay today
+
+- intent: mood_unhappy
+  examples: |
+    - I am sad
+    - feeling down
+    - not so good
+    - very unhappy
+    - I am disappointed
+    - having a bad day
+    - super sad
+    - extremely sad
+    - not happy
+    - my mood is low
+    - feeling miserable
+    - sad vibes
+    - not feeling well
+    - feeling gloomy
+    - upset today
+    - I feel terrible
+    - disappointed today
+    - feeling awful
+    - extremely unhappy
+    - very sad today
+    - heartbroken
+    - feeling low
+    - very gloomy
+    - down today
+    - disappointed with work
+    - frustrated
+    - stressed
+    - emotionally low
+    - depressed
+    - exhausted
+    - sad as ever
+    - miserable mood
+    - gloomy vibes
+    - feeling bad
+    - unhappy today
+    - I am stressed
+    - upset about work
+    - down mood
+    - low energy
+    - very frustrated
+    - emotionally drained
+    - sad vibes today
+    - extremely down
+    - feeling unhappy today
+    - feeling blue
+    - discouraged
+    - dejected
+    - unhappy vibes
+    - heavy heart
+    - upset mood
+    - feeling sad today
+    - very disappointed
+    - gloomy day
+    - frustrated mood
+    - unhappy with work
+    - emotional
+    - sad day
+    - extremely stressed
+    - depressed mood
+    - heartbroken today
+    - feeling terrible today
+    - very low energy
+    - exhausted today
+    - discouraged today
+    - dejected today
+    - low spirits
+    - very gloomy today
+    - extremely low
+    - sad and tired
+    - unhappy mood today
+    - upset with work
+    - stressed out
+    - very sad and down
+    - miserable today
+    - gloomy feeling
+    - feeling exhausted
+    - heart heavy
+    - extremely frustrated
+    - sad and unhappy
+    - very low mood
+    - depressed today
+    - down and stressed
+    - feeling miserable today
+    - emotionally low today
+    - unhappy feelings
+    - upset today at work
+    - frustrated today
+    - feeling down today
+    - sad and discouraged
+    - miserable mood today
+    - gloomy vibes today
+    - very sad and stressed
+    - extremely unhappy today
+    - sad as hell
+    - down and unhappy
+    - feeling very low
+    - very disappointed today
+    - heavy mood
+    - sad and depressed
+    - heartbroken and down
+    - miserable and stressed
+    - meh
+    - not feelin it
+    - bummed
+    - sad vibes
+    - feelin low
+    - rip me
+    - fml
+    - ugh
+    - down bad
+    - stressed af
+    - I’m feeling sad
+    - Not having a good day
+    - I’m upset
+    - Feeling low
+    - I’m disappointed
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you real?
+    - are you AI?
+    - are you an assistant?
+    - are you a machine?
+    - can you answer like a human?
+    - are you automated?
+    - is this a bot?
+    - are you a program?
+    - are you virtual?
+    - are you intelligent?
+    - is this a human talking?
+    - is this AI?
+    - are you a chatbot?
+    - are you just a bot?
+    - do you have feelings?
+    - are you real or AI?
+    - can humans talk to you?
+    - are you a digital assistant?
+    - are you automated system?
+    - am I talking to AI?
+    - are you sentient?
+    - are you artificially intelligent?
+    - do you understand humans?
+    - are you a software bot?
+    - is this real human response?
+    - are you virtual assistant?
+    - are you an intelligent bot?
+    - am I speaking with AI?
+    - are you a computer program?
+    - are you human or bot?
+    - are you an AI assistant?
+    - can I talk to a human?
+    - are you just AI?
+    - is this a digital bot?
+    - can you simulate human conversation?
+    - are you smart?
+    - are you a machine learning model?
+    - do you have AI intelligence?
+    - are you real or simulated?
+    - can you act like a human?
+    - are you software AI?
+    - are you a humanoid bot?
+    - are you a machine bot?
+    - can you think like a human?
+    - are you automated intelligence?
+    - are you AI or human?
+    - is this a program talking?
+    - are you a human-like bot?
+    - are you digital intelligence?
+    - am I speaking with a bot?
+    - are you a chatbot AI?
+    - can bots talk like humans?
+    - are you simulated human?
+    - are you real AI?
+    - are you virtual human?
+    - are you programmed bot?
+    - do you think like human?
+    - are you artificially smart?
+    - are you digital human?
+    - are you just a chatbot?
+    - are you automated bot?
+    - can AI talk like human?
+    - are you a conversational bot?
+    - are you machine intelligence?
+    - are you a sentient bot?
+    - am I chatting with AI?
+    - are you a digital assistant bot?
+    - are you AI-powered?
+    - are you artificially intelligent machine?
+    - are you human-like AI?
+    - are you a virtual assistant AI?
+    - can I talk to bot?
+    - are you human or AI?
+    - are you a smart assistant?
+    - are you a bot or AI?
+    - are you AI entity?
+    - are you human-mimicking bot?
+    - can bots converse naturally?
+    - are you a bot entity?
+    - are you intelligent machine?
+    - are you AI system?
+    - can you talk like human?
+    - are you virtual intelligence?
+    - am I talking to real bot?
+    - are you artificial entity?
+    - are you a thinking machine?
+    - are you digital AI?
+    - are you an AI program?
+    - are you automated assistant?
+    - can you answer as human?
+    - are you computer bot?
+    - are you smart bot?
+    - are you intelligent AI?
+    - are you virtual bot?
+    - are you just a program?
+    - can AI chat like human?
+    - are you a bot system?
+    - are you AI interface?
+    - are you automated AI?
+    - are you synthetic intelligence?
+    - am I speaking with AI bot?
+    - are you programmed AI?
+    - are you a virtual assistant bot?
+    - are you software AI bot?
+    - are you an artificial bot?
+    - are you AI chatbot?
+    - are you just digital bot?
+    - can I trust you as human?
+    - are you intelligent program?
+    - are you an AI agent?
+    - can AI respond like human?
+    - are you human emulating bot?
+    - are you digital AI entity?
+    - are you real intelligence?
+    - are you chatbot program?
+    - are you automated digital bot?
+    - you a bot fr?
+    - r u human or nah?
+    - no cap, are you real?
+    - fr, you a bot?
+    - am I talking to AI or human?
+    - yo bot, answer me
+    - lol you a bot?
+    - you real or nah?
+    - not sus, are you human?
+    - are you for real?
+    - Are you a bot?
+    - Is this an AI?
+    - Am I talking to a human?
+    - Are you real?
+
+- intent: working_hours_query
+  examples: |
+    - what are the working hours?
+    - office timings
+    - when do we start and finish work?
+    - standard working hours
+    - what time should I log in?
+    - what time does work start?
+    - when does office open?
+    - what is the office schedule?
+    - office hours
+    - work timing today
+    - what time do we clock in?
+    - what time is the office open?
+    - when do we finish work?
+    - what is the daily schedule?
+    - work start time
+    - work end time
+    - office start time
+    - office end time
+    - when to arrive at work?
+    - when to leave work?
+    - normal working hours
+    - standard office hours
+    - daily office schedule
+    - business hours
+    - core office hours
+    - working shift time
+    - shift hours
+    - office open and close timing
+    - office log-in hours
+    - working day schedule
+    - official working hours
+    - what are my work timings?
+    - office opening time
+    - office closing time
+    - hours at work
+    - how many hours to work?
+    - daily work schedule
+    - office routine
+    - what is the official timing?
+    - starting time of work
+    - ending time of work
+    - total working hours
+    - office start and end
+    - workday schedule
+    - daily office hours
+    - when office starts?
+    - when office ends?
+    - office log-in and log-out time
+    - working shift schedule
+    - standard shift hours
+    - work timing rules
+    - official working schedule
+    - daily shift schedule
+    - office hours today
+    - start and finish time
+    - arrival and departure time
+    - business timing
+    - what is normal working hours?
+    - office entry time
+    - office exit time
+    - workday hours
+    - standard shift timing
+    - daily hours at work
+    - start time of office
+    - end time of office
+    - office attendance hours
+    - regular work hours
+    - hours of work per day
+    - daily log-in and log-out
+    - work timing policy
+    - office operation hours
+    - workday routine
+    - office shift hours
+    - working hours policy
+    - daily work hours
+    - normal office schedule
+    - official shift hours
+    - when to punch in?
+    - when to punch out?
+    - office opening and closing
+    - what are core hours?
+    - core working hours
+    - flexible hours?
+    - office schedule today
+    - working hours today
+    - office timing rules
+    - daily work start
+    - daily work end
+    - normal workday
+    - workday start and end
+    - office shift schedule
+    - daily work log
+    - standard log-in time
+    - standard log-out time
+    - official work schedule
+    - time to start work
+    - time to end work
+    - daily attendance schedule
+    - when to come to office
+    - when to leave office
+    - office work hours today
+    - what’s the grind hours?
+    - clock-in times?
+    - when do I gotta show up?
+    - work schedule, gimme the deets
+    - office hours?
+    - my shift timings?
+    - when do we start n end work?
+    - daily hustle hours?
+    - working schedule pls
+    - tell me work hours
+    - What are the office hours?
+    - When does work start and end?
+    - How long is the workday?
+    - Can you tell me the standard working hours?
+    - Office timings, please
+
+- intent: remote_work_query
+  examples: |
+    - can I work from home?
+    - what is the WFH policy?
+    - remote work allowed?
+    - emergency work from home
+    - is work from home permitted?
+    - can I do remote work?
+    - telecommuting options?
+    - can I work remotely?
+    - work from home rules?
+    - remote working policy?
+    - flexible working from home?
+    - home office allowed?
+    - is WFH possible today?
+    - how many days can I work remotely?
+    - do we have WFH days?
+    - remote work schedule?
+    - can I stay home for work?
+    - work from home benefits?
+    - remote working guidelines?
+    - is teleworking allowed?
+    - WFH policy details?
+    - can I attend remotely?
+    - remote attendance allowed?
+    - working from home approval?
+    - remote work for emergencies?
+    - WFH during lockdown?
+    - flexible working from home policy?
+    - remote work procedures?
+    - home office rules?
+    - WFH limitations?
+    - working from home hours?
+    - can manager approve WFH?
+    - how to apply for WFH?
+    - remote work application?
+    - WFH approval process?
+    - remote working conditions?
+    - can I take a WFH day?
+    - remote work eligibility?
+    - WFH regulations?
+    - work remotely guidelines?
+    - remote attendance rules?
+    - is WFH allowed today?
+    - can I log in from home?
+    - work from home schedule?
+    - WFH process?
+    - remote work policy details?
+    - telecommuting allowed?
+    - flexible remote work?
+    - working remotely policy?
+    - WFH for medical reasons?
+    - remote working benefits?
+    - how many WFH days per week?
+    - can I WFH tomorrow?
+    - WFH restrictions?
+    - is working from home okay?
+    - remote work guidelines for employees?
+    - telework policy?
+    - home working policy?
+    - WFH rights?
+    - remote work privileges?
+    - is WFH optional?
+    - remote office work?
+    - work from home rules for staff?
+    - telecommuting policy?
+    - work from home instructions?
+    - can I work from home this week?
+    - WFH approval needed?
+    - home office procedure?
+    - remote working instructions?
+    - is remote work flexible?
+    - work from home availability?
+    - WFH authorization process?
+    - telework guidelines?
+    - remote office allowed?
+    - WFH formalities?
+    - remote work schedule policy?
+    - can I work from home occasionally?
+    - WFH per week?
+    - home working permissions?
+    - remote work days?
+    - flexible WFH hours?
+    - telecommuting rules?
+    - work from home approval steps?
+    - WFH application rules?
+    - remote work policy guide?
+    - can staff work remotely?
+    - work remotely permission?
+    - WFH duration allowed?
+    - home office regulations?
+    - telecommuting days?
+    - remote attendance policy?
+    - WFH process details?
+    - remote work access?
+    - work from home rules and regulations?
+    - WFH workflow?
+    - teleworking permissions?
+    - remote work for special reasons?
+    - can I log in from home office?
+    - flexible telecommuting?
+    - WFH plan?
+    - home office policy details?
+    - remote work approval required?
+    - work from home rules today?
+    - WFH day schedule?
+    - remote work guidance?
+    - can I wfh tho?
+    - remote vibes allowed?
+    - work from couch ok?
+    - WFH days?
+    - can I do the home office thing?
+    - chill at home and work?
+    - zoomin from home ok?
+    - can I dip from office?
+    - work remotely allowed?
+    - flex wfh days?
+    - Can I work remotely?
+    - Is working from home allowed?
+    - What’s the WFH policy?
+    - How many days can I work from home?
+    - Can I join meetings from home?
+
+- intent: leave_policy_query
+  examples: |
+    - how many casual leaves do I have?
+    - sick leave policy
+    - maternity leave
+    - paternity leave
+    - leave application procedure
+    - what is my annual leave?
+    - how many paid leaves?
+    - leave rules
+    - leave approval process
+    - leave entitlements
+    - leave balance inquiry
+    - can I apply for leave?
+    - leave duration policy
+    - short leave rules
+    - what is the sick leave duration?
+    - how to apply for maternity leave?
+    - leave application online
+    - leave process details
+    - annual leave policy
+    - earned leave calculation
+    - casual leave policy
+    - leave carry forward rules
+    - unpaid leave policy
+    - emergency leave guidelines
+    - how many leaves per year?
+    - leave request process
+    - leave approval workflow
+    - leave types and rules
+    - leave eligibility
+    - leave limit per year
+    - leave for personal reasons
+    - leave for emergencies
+    - sick leave rules
+    - leave for family reasons
+    - leave benefits
+    - leave request format
+    - leave duration limits
+    - leave notice period
+    - leave application procedure online
+    - leave management system
+    - leave approval time
+    - leave quotas
+    - leave deduction policy
+    - leave tracking
+    - leave records
+    - leave forms
+    - leave submission process
+    - leave entitlement calculation
+    - leave for part-time staff
+    - leave for probation period
+    - leave for maternity/paternity
+    - leave rules per month
+    - leave notification rules
+    - leave request approval
+    - leave system
+    - leave tracking system
+    - leave balance checking
+    - leave management policy
+    - leave request submission
+    - leave for short duration
+    - leave approval workflow online
+    - leave application email
+    - leave schedule
+    - leave rules for staff
+    - leave compensation
+    - leave eligibility rules
+    - leave entitlement per month
+    - leave request online
+    - leave policy details
+    - leave benefits overview
+    - leave tracking procedure
+    - leave approval system
+    - leave workflow
+    - leave calculation formula
+    - leave balance inquiry online
+    - leave application form submission
+    - leave eligibility criteria
+    - leave for long-term absence
+    - leave policy for employees
+    - leave rules and regulations
+    - leave types and entitlements
+    - leave application guidelines
+    - leave management online
+    - leave approval rules
+    - leave request process guide
+    - leave for emergency situation
+    - leave system workflow
+    - leave approval manager
+    - leave for personal emergency
+    - leave request email
+    - leave balance report
+    - leave submission guidelines
+    - leave request approval manager
+    - leave calculation details
+    - leave rules overview
+    - leave request procedure
+    - leave tracking online
+    - leave rules policy
+    - leave benefits calculation
+    - leave application approval
+    - leave notification process
+    - need a day off, what’s the policy?
+    - casual leave rules?
+    - sick leave sitch?
+    - maternity leave deets?
+    - paternity leave info?
+    - how many vacay days?
+    - can I dip tomorrow?
+    - leave app procedure?
+    - what’s the leave flex?
+    - leave policy pls
+    - How many leave days do I have?
+    - What’s the sick leave policy?
+    - Can I take casual leave next week?
+    - How is maternity leave handled?
+    - What’s the process for applying for leave?
+
+- intent: expense_policy_query
+  examples: |
+    - food allowance on trips
+    - hotel reimbursement
+    - travel expenses
+    - cab fare reimbursement
+    - travel allowance rules
+    - expenses policy
+    - what expenses are reimbursed?
+    - travel reimbursement procedure
+    - hotel reimbursement policy
+    - food reimbursement policy
+    - trip expenses
+    - business travel policy
+    - reimbursable expenses
+    - expense submission process
+    - how to claim expenses?
+    - expense approval workflow
+    - company expenses policy
+    - travel reimbursement rules
+    - expense claim procedure
+    - travel expense claim
+    - meal allowance policy
+    - travel allowance claim
+    - taxi fare reimbursement
+    - train fare reimbursement
+    - airfare reimbursement rules
+    - travel cost reimbursement
+    - expenses guidelines
+    - company reimbursement policy
+    - business trip expenses
+    - travel expenses reimbursement
+    - company travel rules
+    - expense approval process
+    - how to get reimbursed?
+    - business expenses policy
+    - expense reporting
+    - reimbursement rules
+    - claim submission process
+    - expense form submission
+    - expense claims procedure
+    - meal expenses reimbursement
+    - lodging reimbursement
+    - travel cost claim
+    - hotel stay reimbursement
+    - cab reimbursement rules
+    - train reimbursement process
+    - travel expense guidelines
+    - allowable expenses
+    - expense tracking
+    - submit expenses online
+    - company travel allowance
+    - expense reimbursement online
+    - claim travel expenses
+    - food and lodging reimbursement
+    - business trip allowance
+    - expense rules
+    - allowable business expenses
+    - reimbursement guidelines
+    - expense approval time
+    - travel cost policy
+    - employee expenses
+    - claim procedure
+    - reimbursement steps
+    - how to submit expenses
+    - expense management
+    - expense claim rules
+    - company expense procedure
+    - travel reimbursement guide
+    - expense form process
+    - allowable reimbursement
+    - company spending rules
+    - claim submission guidelines
+    - expense tracking system
+    - expense application
+    - business travel reimbursement
+    - travel and lodging policy
+    - food reimbursement rules
+    - cab fare claim process
+    - travel reimbursement application
+    - expense reimbursement workflow
+    - reimbursement process
+    - expenses claim procedure
+    - company reimbursement workflow
+    - travel and food expenses
+    - lodging allowance policy
+    - expense reporting guidelines
+    - claim approval process
+    - business travel expenses policy
+    - company travel expense rules
+    - travel reimbursement policy
+    - expense guidelines for staff
+    - expense claim submission online
+    - reimbursement request
+    - company expense rules
+    - travel expense reimbursement workflow
+    - expense management process
+    - food allowance on trips?
+    - hotel reimb vibes?
+    - travel costs covered?
+    - cab fare cool?
+    - expenses policy?
+    - trip reimbursements?
+    - what I can claim?
+    - reimb rules?
+    - travel bucks policy?
+    - bills for trips ok?
+    - How much is the travel allowance?
+    - What’s the reimbursement policy for hotel stays?
+    - Can I claim cab fares?
+    - Food expenses during trips — how much is reimbursed?
+    - Are personal shopping expenses covered?
+
+
+- intent: resignation_policy_query
+  examples: |
+    - how do I resign?
+    - resignation procedure
+    - exit policy
+    - leaving the company
+    - notice period for resignation
+    - how to submit resignation?
+    - resignation letter format
+    - resignation guidelines
+    - resignation process
+    - last working day rules
+    - resign from job
+    - resignation email template
+    - notice period rules
+    - leave after resignation
+    - final settlement procedure
+    - exit interview process
+    - HR resignation policy
+    - company resignation rules
+    - submit resignation via portal
+    - resignation for permanent staff
+    - resignation approval workflow
+    - how to leave company?
+    - notice period duration
+    - resigning procedure steps
+    - resignation form submission
+    - return company assets after resignation
+    - resignation notice submission
+    - resignation workflow
+    - resignation for probationary employees
+    - exit formalities
+    - resignation process for employees
+    - final paycheck process
+    - resignation email procedure
+    - how to resign online?
+    - resignation letter submission rules
+    - submit resignation to HR
+    - resignation HR process
+    - last day rules
+    - resignation policy for staff
+    - notice submission rules
+    - resignation application procedure
+    - resigning from the company
+    - resignation clearance process
+    - resignation approval steps
+    - resign process guidelines
+    - exit management
+    - leaving job formally
+    - resigning requirements
+    - resignation process for full-time employees
+    - notice period policy
+    - resignation application format
+    - HR clearance for resignation
+    - resignation formalities checklist
+    - resignation policy online
+    - exit procedure for employees
+    - resignation workflow online
+    - resignation letter online submission
+    - resign rules and regulations
+    - final settlement after resignation
+    - HR exit formalities
+    - resignation notice guidelines
+    - submit resignation properly
+    - resignation for senior employees
+    - resignation guidelines for managers
+    - resignation process instructions
+    - last working day notice
+    - resign application online
+    - resignation for remote staff
+    - resign process online
+    - HR notice for resignation
+    - exit formalities guide
+    - resignation checklist
+    - resignation letter template
+    - notice period calculation
+    - resignation email guidelines
+    - HR process for leaving company
+    - resignation rules for employees
+    - submit resignation request
+    - resignation online form
+    - resignation for probation
+    - exit procedure rules
+    - resign workflow
+    - resignation approval manager
+    - last day clearance
+    - leave after resignation approval
+    - resignation portal submission
+    - final settlement rules
+    - notice period for staff
+    - resignation policy details
+    - resigning instructions
+    - resign form
+    - resignation for permanent employees
+    - exit interview scheduling
+    - resignation process flow
+    - HR clearance rules
+    - notice submission procedure
+    - resign procedure step-by-step
+    - resignation process manual
+    - resignation approval system
+    - HR resignation workflow
+    - leaving company steps
+    - resignation guidance
+    - resignation for employees working remotely
+    - how do I quit?
+    - leaving the squad, rules?
+    - resignation deets?
+    - notice period?
+    - exit procedures?
+    - how to dip company?
+    - leaving policy?
+    - step out process?
+    - bounce from work, how?
+    - quit policy pls
+    - How do I resign?
+    - What’s the resignation process?
+    - Can you tell me the exit policy?
+    - How much notice do I need to give?
+    - What happens to pending leaves when resigning?
+
+
+- intent: it_security_query
+  examples: |
+    - IT security rules
+    - password policy
+    - company device security
+    - VPN usage rules
+    - cybersecurity guidelines
+    - secure company systems
+    - IT access rules
+    - computer security policy
+    - reporting security breaches
+    - unauthorized software rules
+    - confidential data protection
+    - email security policy
+    - multi-factor authentication policy
+    - workstation security rules
+    - IT compliance guidelines
+    - secure network usage
+    - company laptop policy
+    - IT security procedures
+    - password confidentiality
+    - IT rules for employees
+    - data access restrictions
+    - IT security best practices
+    - IT usage rules
+    - endpoint security policy
+    - company device usage
+    - network security rules
+    - computer access control
+    - IT policy guidelines
+    - password expiration policy
+    - secure system usage
+    - IT risk management
+    - employee IT responsibilities
+    - IT security monitoring
+    - acceptable use policy
+    - IT security training
+    - IT incident reporting
+    - remote access policy
+    - IT security for remote work
+    - VPN connection rules
+    - device encryption rules
+    - IT access control
+    - IT policy enforcement
+    - secure login procedures
+    - software installation rules
+    - IT audit policy
+    - IT security alerts
+    - reporting phishing emails
+    - IT security instructions
+    - endpoint protection guidelines
+    - IT compliance rules
+    - IT security awareness
+    - laptop usage policy
+    - network access policy
+    - IT security violations
+    - IT security measures
+    - data confidentiality rules
+    - system password rules
+    - IT security management
+    - IT access restrictions
+    - IT security notifications
+    - company network rules
+    - IT governance policy
+    - IT security compliance
+    - endpoint security rules
+    - password management policy
+    - IT threat mitigation
+    - IT monitoring policy
+    - secure IT practices
+    - IT workstation policy
+    - IT responsibility rules
+    - system security protocols
+    - VPN security policy
+    - IT security controls
+    - IT safety rules
+    - company IT guidelines
+    - reporting IT incidents
+    - IT risk assessment
+    - data protection policy
+    - IT compliance measures
+    - IT system guidelines
+    - password safety rules
+    - IT operational rules
+    - secure IT systems
+    - IT device policy
+    - IT security workflow
+    - IT security plan
+    - IT access guidelines
+    - IT user policy
+    - endpoint protection policy
+    - company IT security rules
+    - IT security monitoring procedures
+    - IT incident response
+    - IT threat rules
+    - IT security education
+    - password protection rules
+    - IT systems usage rules
+    - secure data handling
+    - password rules?
+    - IT security 411?
+    - don’t get hacked, details?
+    - vpn usage ok?
+    - company device policy?
+    - cyber rules pls
+    - keep data safe, how?
+    - tech security?
+    - info security sitch?
+    - hacking rules?
+    - What are the IT security rules?
+    - Can I share my password with a colleague?
+    - How should I handle company devices?
+    - Are we allowed to install software freely?
+    - VPN usage policy?
+
+- intent: code_of_conduct_query
+  examples: |
+    - company code of conduct
+    - workplace behavior rules
+    - ethics policy
+    - professional conduct
+    - anti-harassment policy
+    - discrimination rules
+    - workplace ethics
+    - office conduct guidelines
+    - employee behavior rules
+    - company ethics guidelines
+    - professional behavior standards
+    - workplace respect policy
+    - bullying policy
+    - ethical behavior rules
+    - staff conduct policy
+    - conduct guidelines for employees
+    - workplace rules and regulations
+    - company code rules
+    - employee conduct expectations
+    - workplace professionalism
+    - workplace harassment rules
+    - ethical standards at work
+    - conduct and ethics policy
+    - anti-bullying rules
+    - employee behavior policy
+    - code of ethics
+    - office ethics policy
+    - workplace conduct standards
+    - professional ethics guidelines
+    - company workplace rules
+    - ethics and conduct rules
+    - office behavior policy
+    - company code for employees
+    - conduct and professionalism rules
+    - workplace conduct expectations
+    - anti-discrimination rules
+    - employee conduct guidelines
+    - workplace ethics rules
+    - ethical conduct policy
+    - professional standards at work
+    - code of conduct guidelines
+    - office behavior standards
+    - ethical workplace policy
+    - employee behavior expectations
+    - workplace code policy
+    - company ethics code
+    - staff behavior rules
+    - workplace conduct rules
+    - office professional conduct
+    - ethical work behavior
+    - workplace decorum
+    - office ethics rules
+    - professional conduct policy
+    - workplace harassment guidelines
+    - company behavior standards
+    - employee ethics rules
+    - office conduct guidelines
+    - workplace conduct policy
+    - employee code of conduct
+    - professional ethics policy
+    - ethical workplace standards
+    - anti-harassment guidelines
+    - employee decorum rules
+    - office rules for employees
+    - company conduct code
+    - workplace ethics guidelines
+    - professional conduct expectations
+    - employee professional standards
+    - office ethics compliance
+    - workplace decorum rules
+    - conduct and ethics expectations
+    - ethical office practices
+    - staff code of conduct
+    - company ethics regulations
+    - employee behavior guidelines
+    - workplace professional standards
+    - code of ethics at work
+    - workplace harassment rules
+    - staff ethics policy
+    - office decorum guidelines
+    - professional conduct rules
+    - workplace conduct compliance
+    - employee conduct management
+    - company workplace ethics
+    - workplace decorum policy
+    - office behavior guidelines
+    - staff ethics code
+    - professional office conduct
+    - workplace vibes rules?
+    - ethics policy?
+    - behave or nah?
+    - no drama policy?
+    - work manners?
+    - office code?
+    - respect rules?
+    - conduct policy?
+    - professional dos n don’ts?
+    - office behavior guide?
+    - What is the company code of conduct?
+    - Workplace behavior rules?
+    - Ethics policy of the organization?
+    - How should employees behave professionally?
+    - Guidelines for respecting colleagues
+
+- intent: benefits_query
+  examples: |
+    - what are my benefits?
+    - compensation policy
+    - perks and benefits
+    - insurance coverage
+    - health insurance details
+    - provident fund rules
+    - employee benefits package
+    - bonus policy
+    - wellness programs
+    - performance incentives
+    - salary benefits
+    - company perks
+    - retirement benefits
+    - medical insurance coverage
+    - statutory benefits
+    - employee allowances
+    - learning & development programs
+    - team events benefits
+    - health and wellness programs
+    - employee perks
+    - benefits overview
+    - salary structure details
+    - bonus eligibility
+    - insurance benefits
+    - leave benefits
+    - retirement plan details
+    - employee reward programs
+    - employee compensation package
+    - company health plans
+    - performance bonuses details
+    - employee incentives
+    - benefits rules
+    - provident fund contributions
+    - health and safety benefits
+    - wellness and perks programs
+    - employee perks list
+    - company provided benefits
+    - health coverage policy
+    - statutory and legal benefits
+    - employee bonus schemes
+    - learning programs for staff
+    - professional development perks
+    - benefits and allowances
+    - employee reward policy
+    - compensation rules
+    - retirement and pension benefits
+    - medical coverage details
+    - company perks overview
+    - salary incentives
+    - employee insurance policy
+    - employee benefits guidelines
+    - perks and rewards policy
+    - health benefits for staff
+    - insurance policy rules
+    - performance incentive program
+    - employee welfare benefits
+    - provident fund rules for staff
+    - bonuses and rewards
+    - company wellness programs
+    - employee learning programs
+    - professional development policy
+    - employee health insurance rules
+    - statutory employee benefits
+    - company incentive programs
+    - salary benefits policy
+    - benefits calculation rules
+    - staff wellness initiatives
+    - employee rewards and recognition
+    - company perks and programs
+    - insurance and coverage rules
+    - employee bonus policy
+    - company provided wellness benefits
+    - professional development programs for employees
+    - staff incentive programs
+    - employee perks and benefits rules
+    - retirement plan policy
+    - employee insurance coverage
+    - benefits and rewards programs
+    - wellness and health programs
+    - staff compensation details
+    - company benefits and perks
+    - employee benefits plan
+    - salary and bonuses policy
+    - health insurance for staff
+    - employee welfare programs
+    - perks and benefits overview
+    - retirement contributions
+    - learning programs policy
+    - company incentive rules
+    - employee reward schemes
+    - professional growth programs
+    - perks deets?
+    - compensation info?
+    - benefits sitch?
+    - insurance covered?
+    - bonuses info?
+    - company perks?
+    - what’s in the benefits?
+    - monthly salary deets?
+    - employee goodies?
+    - extra perks?
+    - What are my benefits?
+    - Salary details and perks?
+    - Insurance coverage policy?
+    - Any wellness programs available?
+    - Performance bonuses details?
+
+- intent: emergency_hr_query
+  examples: |
+    - Who should I contact in case of an HR emergency?
+    - How do I report urgent HR issues?
+    - I need guidance for emergency leave.
+    - What is the procedure to contact HR immediately?
+    - How can I reach HR for urgent matters?
+    - I require HR support in a critical situation.
+    - Please advise on how to report an emergency to HR.
+    - What steps should I follow for urgent HR assistance?
+    - How can I escalate a critical HR issue?
+    - Which HR personnel should be contacted for emergencies?
+    - Who do I contact if something urgent comes up with HR?
+    - How do I get in touch with HR quickly?
+    - I need help from HR right away.
+    - How can I reach HR for an urgent issue?
+    - Who handles urgent HR stuff?
+    - Can HR help me with an emergency leave?
+    - I need immediate HR guidance.
+    - Where can I report an urgent HR problem?
+    - Who do I talk to in HR for urgent matters?
+    - How do I notify HR about a critical issue?
+    - Yo, who do I ping in HR if something urgent pops?
+    - Need HR ASAP, who’s the plug?
+    - Emergency HR vibes, who do I hit up?
+    - Who in HR can sort me out fast?
+    - HR emergency, who’s the go-to?
+    - Need HR on the double, who do I text?
+    - Quick HR check, who do I reach out to?
+    - HR sitch, who handles that pronto?
+    - SOS, need HR help, who do I contact?
+    - HR stuff urgent af, who do I talk to?
+    - How do I reach HR for emergencies?
+    - HR emergency contact info, please.
+    - Immediate HR support needed.
+    - Who do I contact if there’s an HR crisis?
+    - Quick HR guidance needed, who can help?
+    - How to escalate urgent HR matters?
+    - I need to report a serious HR issue.
+    - HR emergency line, how to reach?
+    - Contact HR fast, who should I call?
+    - Help me contact HR for urgent problems.
+    - I need to file an urgent HR complaint.
+    - Can HR assist me immediately for a critical matter?
+    - What’s the protocol for HR emergencies?
+    - Who is the HR contact for urgent situations?
+    - I require urgent HR intervention.
+    - Please guide me for HR emergencies.
+    - How to reach HR in case of a critical issue?
+    - Immediate HR help, what’s the process?
+    - Escalating urgent HR issues, who do I contact?
+    - Who handles emergency HR requests?
+    - HR emergency, who do I get in touch with?
+    - I need fast help from HR.
+    - What’s the best way to reach HR quickly?
+    - Who do I talk to in HR for emergency stuff?
+    - HR urgent problem, who can assist?
+    - How can HR help me right now?
+    - Need HR support immediately.
+    - HR issues urgent, who do I contact?
+    - Can HR help me ASAP?
+    - Contact HR for emergency, how?
+    - Need HR stat, who’s the contact?
+    - Who do I DM in HR for urgent stuff?
+    - HR probs urgent, need fast help.
+    - Hit up HR quick, who’s the go-to?
+    - HR emergency vibes, who do I talk to?
+    - Need HR on speed dial, who do I call?
+    - Fast HR help needed, who’s the plug?
+    - HR urgent, need advice ASAP.
+    - Who in HR can sort this out quickly?
+    - Immediate HR assistance required.
+    - HR urgent, who do I reach out to?
+    - Emergency HR leave, who do I contact?
+    - Need HR guidance stat.
+    - How do I alert HR fast?
+    - Who handles emergency HR stuff?
+    - HR crisis, need contact info.
+    - Who in HR deals with emergencies?
+    - Quick HR intervention needed.
+    - Need HR help now.
+    - HR emergency, who to notify?
+    - Critical HR situation, who do I reach?
+    - Fast HR support, contact info?
+    - HR urgent query, who do I talk to?
+    - Emergency HR issue, how to report?
+    - HR rapid response needed, who to contact?
+    - Who’s the HR go-to for urgent stuff?
+    - Emergency HR action, who to reach?
+    - Immediate HR contact details?
+    - Who to contact in HR for crises?
+    - HR emergency, who do I call?
+    - Quick HR help, who is available?
+    - Emergency HR query, need guidance.
+    - Urgent HR matter, who to approach?
+    - HR emergency, how do I escalate?
+    - Who can assist with HR critical issues?
+    - HR urgent, immediate contact?
+    - How to notify HR for urgent concerns?
+    - Critical HR help, who do I message?
+    - Who in HR can respond quickly?
+
+- intent: social_check
+  examples: |
+    - hey, how’s everything going?
+    - yo, you good today?
+    - all smooth on your side?
+    - hope you’re vibing well
+    - what’s the vibe?
+    - you feeling okay today?
+    - everything all right?
+    - all good in your hood?
+    - hey, all well with you?
+    - you straight up today?
+    - how’s life?
+    - you keeping well?
+    - everything’s good with you?
+    - hope all’s chill
+    - you all good today?
+    - what’s the mood?
+    - feeling nice today?
+    - everything sorted on your side?
+    - you doing well?
+    - all cool with you?
+    - yo, what’s happening?
+    - we vibin’ today?
+    - you okay with stuff?
+    - how’s your vibe today?
+    - hope you’re feeling solid
+    - you all set?
+    - everything smooth today?
+    - all chill today?
+    - you feeling chill?
+    - we good today?
+    - all right with you?
+    - hey, feeling fine?
+    - all good today?
+    - you straight today?
+    - all smooth on your end?
+    - you keeping good?
+    - hope life’s good
+    - you doing okay buddy?
+    - all is well today?
+    - everything straight?
+    - you solid today?
+    - we chillin’?
+    - all good vibes today?
+    - you okay bro?
+    - everything gucci today?
+    - you all right buddy?
+    - hey, what’s poppin’?
+    - everything’s fine mate?
+    - you chillin’ today?
+    - all set mate?
+    - hope you’re good mate
+    - you feeling solid today?
+    - everything smooth buddy?
+    - we good mate?
+    - you fine today?
+    - all good homie?
+    - you okay fam?
+    - what’s crackin’?
+    - all straight today?
+    - you keeping chill?
+    - hope you’re straight
+    - everything good fam?
+    - we vibin’ bro?
+    - you solid fam?
+    - all chill fam?
+    - you doing well bro?
+    - everything’s sorted bro?
+    - you keeping solid?
+    - we straight fam?
+    - all good on your end?
+    - you fine fam?
+    - everything’s chill fam?
+    - you feeling cool today?
+    - we good bro?
+    - all smooth fam?
+    - hey, how’s it rolling?
+    - all set bro?
+    - you okay dude?
+    - everything gucci fam?
+    - you feeling good bro?
+    - all straight bro?
+    - you chillin’ bro?
+    - we set today?
+    - all good homie?
+    - you solid bro?
+    - everything’s fine today?
+    - you vibin’ fam?
+    - all chill bro?
+    - you all set today?
+    - hope all’s smooth
+    - you keeping well bro?
+    - all straight fam?
+    - hey, you feeling nice?
+    - everything’s all right?
+    - we cool bro?
+    - you good buddy?
+    - all smooth buddy?
+    - you chill buddy?
+    - hope life’s chill
+    - you straight buddy?
+    - everything sorted buddy?
+    - all good pal?
+    - you vibin’ buddy?
+    - hey, all smooth buddy?
+    - we vibin’ buddy?
+    - all is well buddy?
+    - you keeping solid buddy?
+    - everything’s chill buddy?
+    - you feeling solid buddy?
+    - all set buddy?
+    - you all good buddy?
+    - everything fine buddy?
+    - we good buddy?
+    - hey, you straight pal?
+    - all cool pal?
+    - you fine pal?
+    - everything’s sorted pal?
+    - you chillin’ pal?
+    - all good today pal?
+    - you vibin’ pal?
+    - hope life’s good pal
+    - everything smooth pal?
+    - we set pal?
+    - you okay pal?
+    - all straight pal?
+    - you feeling nice pal?
+    - everything’s fine pal?
+    - you keeping well pal?
+    - all chill pal?
+    - you solid pal?
+    - we good pal?
+    - hey, all is good?
+    - you vibin’ today pal?
+    - everything sorted pal?
+    - all smooth today pal?
+    - you okay today pal?
+    - we chillin’ today?
+    - you fine buddy?
+    - all good vibes buddy?
+    - you solid today buddy?
+    - everything straight buddy?
+    - you chill buddy?
+    - we good buddy?
+    - all set buddy?
+    - you feeling chill buddy?
+    - everything fine buddy?
+    - you keeping solid buddy?
+    - hey, how’s it going buddy?
+    - all smooth buddy?
+    - you straight buddy?
+    - everything’s all right buddy?
+    - you vibin’ buddy?
+    - we set buddy?
+    - all cool buddy?
+    - you fine today buddy?
+    - everything sorted buddy?
+    - you chillin’ buddy?
+    - we good today buddy?
+    - all set today buddy?
+    - you feeling nice today buddy?
+    - everything’s fine today buddy?
+    - you keeping well today buddy?
+    - all chill today buddy?
+    - you solid today buddy?
+    - we good today buddy?
+    - hey, all is good today buddy?
+
+- intent: policy_inquiry
+  examples: |
+    - I need to ask about some policies
+    - Can you tell me about company policies?
+    - I have a question about HR policies
+    - Tell me about leave and expense rules
+    - What are the company policies I should follow?
+    - Need info on company rules
+    - I want to know about HR policies
+    - Can you explain the workplace policies?
+    - Give me details on leave, benefits, and more
+    - I need guidance on HR rules
+    - Can you help me with company regulations?
+    - I want to understand the HR procedures
+    - Explain the policies for employees
+    - Tell me about benefits and leaves
+    - I want info on expenses, leave, and remote work
+    - Need clarification on HR rules
+    - Can you summarize company policies?
+    - I need an overview of workplace guidelines
+    - Give me all the details about HR policies
+    - Help me understand company rules
+
+- intent: show_all_policies
+  examples: |
+    - What are all the company policies?
+    - Tell me all HR rules.
+    - Show me every policy in the company.
+    - I want a list of all company policies.
+    - Give me all policies regarding work, leave, and expenses.
+    - Can you show me all the company policies?
+    - I want to see every policy.
+    - Show all HR policies, please.
+    - List all rules and guidelines.
+    - Give me a complete overview of policies.
+    - I want a summary of all policies.
+    - Show all rules at once.
+    - Can you list all company policies?
+    - Give me all policy information.
+    - Display all HR policies.
+    - Tell me everything about company policies.
+    - I need a full rundown of policies.
+    - Can you show all the guidelines?
+    - Show me the complete policy list.
+    - I want all rules and regulations.
+
+- intent: payroll_query
+  examples: |
+    - Can you tell me about my salary?
+    - When will I receive my paycheck?
+    - How is the payroll processed?
+    - I want to check my payslip.
+    - Tell me about my monthly salary.
+    - What deductions are applied to my pay?
+    - How often is salary credited?
+    - Can I see my payroll details online?
+    - Is my overtime included in my salary?
+    - When is the salary transferred to the bank?
+    - How can I view my salary statement?
+    - Does payroll include bonuses?
+    - Can HR explain my salary breakdown?
+    - How are taxes deducted from my salary?
+    - Where can I download my payslip?
+    - Who do I contact for payroll queries?
+    - Are allowances included in my pay?
+    - How is salary calculated if I'm on leave?
+    - Is my PF contribution reflected in payroll?
+    - Can I request a detailed salary statement?
+    - Are reimbursements included in my payroll?
+    - Will my payroll reflect overtime work?
+    - How is my final paycheck processed?
+    - Are salaries confidential?
+    - When does HR notify about salary updates?
+    - How is payroll aligned with company policy?
+    - How do I report payroll errors?
+    - Does my payslip include all benefits?
+    - Is payroll automated or manual?
+    - Can I review my payroll for accuracy?
+    - How is payroll affected by attendance?
+    - Does HR handle payroll disputes?
+    - Are bonuses added to monthly salary?
+    - Can finance clarify payroll issues?
+    - How are deductions applied?
+    - Are all employees on the same payroll schedule?
+    - How do I verify my monthly payment?
+    - Is payroll processed on statutory guidelines?
+    - How can I check payroll notifications?
+    - Is salary disbursement timely every month?
+    - Can I contact HR for salary discrepancies?
+    - How is payroll handled during leave?
+    - Are salaries finalized with approvals?
+    - Does payroll include extra hours worked?
+    - How secure are payroll statements?
+    - Are salaries reflected in bank statements?
+    - Does HR communicate changes in payroll?
+    - Are all payroll processes documented?
+    - Is there a portal for salary queries?
+    - How does payroll comply with contracts?
+    - Can I see all payroll adjustments?
+
+- intent: training_policy_query
+  examples: |
+    - What training programs are available?
+    - Can you tell me about employee training?
+    - Are there any training sessions this month?
+    - How do I enroll in a training program?
+    - What skills development programs exist?
+    - Is training mandatory for new hires?
+    - Can I take part in online training?
+    - What workshops are offered for employees?
+    - Are there courses to improve my skills?
+    - Can HR provide training schedules?
+    - How often are trainings conducted?
+    - Are training sessions paid?
+    - Where do I sign up for training?
+    - Are there external training opportunities?
+    - How can I request specialized training?
+    - Who approves my training request?
+    - Are there team-specific trainings?
+    - Can I get certificates for training?
+    - Are leadership trainings available?
+    - How long is each training session?
+    - Can I attend cross-departmental training?
+    - Are refresher courses offered?
+    - Can I suggest new training topics?
+    - Is training online or in-person?
+    - Are trainings recorded for later viewing?
+    - How is training evaluated?
+    - Are there mandatory compliance trainings?
+    - Can new employees skip training?
+    - Is there a budget for training programs?
+    - Who conducts the training sessions?
+    - Are trainings skill-specific?
+    - How do I know upcoming training dates?
+    - Can training hours count toward work hours?
+    - Are there self-paced training modules?
+    - How to register for technical training?
+    - What soft-skill trainings are offered?
+    - Can I attend multiple trainings at once?
+    - Are training materials provided?
+    - How are trainings communicated?
+    - Can employees give feedback on trainings?
+    - Are there certifications after training?
+    - How many trainings can I attend per year?
+    - Are there mentorship programs?
+    - Can I request external trainer sessions?
+    - Are trainings recorded in my HR profile?
+    - How long do online courses last?
+    - Are management trainings available?
+    - Can I cancel a training session?
+    - Are trainings optional or mandatory?
+    - How often are new training programs introduced?
+
+- intent: promotion_policy_query
+  examples: |
+    - How can I get a promotion?
+    - What is the promotion policy?
+    - Who decides on promotions?
+    - Are promotions yearly or quarterly?
+    - Can I request a promotion review?
+    - What criteria are considered for promotion?
+    - Is performance the only factor for promotion?
+    - Are promotions automatic based on tenure?
+    - How is promotion eligibility determined?
+    - Can promotions be denied?
+    - Is there a promotion appraisal process?
+    - Are there multiple levels in promotion?
+    - Can HR advise on career growth?
+    - How are promotion decisions communicated?
+    - Are promotions linked to salary increments?
+    - Can I appeal a promotion decision?
+    - Who reviews promotion applications?
+    - Is seniority considered for promotion?
+    - Are promotions announced publicly?
+    - How often can employees be promoted?
+    - Are trainings considered for promotions?
+    - Is feedback from managers required?
+    - Can a probationer be promoted early?
+    - Are there performance thresholds for promotion?
+    - How long does the promotion process take?
+    - Are promotions documented in HR records?
+    - Can lateral promotions happen?
+    - Are there skill-based promotions?
+    - How is promotion fairness ensured?
+    - Can team leads recommend promotions?
+    - Are promotions confidential until announced?
+    - What is the process for internal promotions?
+    - Are promotion interviews conducted?
+    - How is promotion communicated to employees?
+    - Can promotion eligibility be fast-tracked?
+    - Are exceptional contributions rewarded?
+    - Can I know promotion history?
+    - Are promotions linked to KPIs?
+    - Can promotions include additional benefits?
+    - How is promotion feedback provided?
+    - Are promotion criteria transparent?
+    - Can cross-functional employees get promoted?
+    - Are promotions performance-based only?
+    - How often is promotion policy updated?
+    - Can employees request feedback on promotion?
+    - Who approves promotions in HR?
+    - Can promotion timing vary per department?
+    - Are promotions reviewed annually?
+    - Can promotions affect job title?
+    - Are promotions discussed in appraisals?
+    - How is promotion eligibility tracked?
+
+- intent: probation_policy_query
+  examples: |
+    - What is the probation period?
+    - How long is probation for new employees?
+    - Are all employees on probation initially?
+    - Can probation be extended?
+    - Who monitors probation performance?
+    - Is probation period fixed?
+    - How is probation completion communicated?
+    - Can probationers request feedback?
+    - Are probation reviews conducted?
+    - What happens if probation is failed?
+    - Are there milestones during probation?
+    - Can probation be terminated early?
+    - Who decides probation outcome?
+    - How is probation progress tracked?
+    - Are probationers eligible for benefits?
+    - Can probation be shortened?
+    - Is probation appraisal formal?
+    - How often is probation reviewed?
+    - Can employees appeal probation decisions?
+    - Is probation period included in tenure?
+    - Are probation terms in employment contract?
+    - Can probation be extended for performance?
+    - Who provides guidance during probation?
+    - Are probation reviews documented?
+    - How long before probation ends are reviews done?
+    - Are probation reports confidential?
+    - Can probationers get training support?
+    - Is probation completion automatic on performance?
+    - Are managers involved in probation evaluation?
+    - Can probation outcomes affect promotion?
+    - Are there probation check-ins?
+    - Can probationer resign during probation?
+    - Are probationers eligible for bonus?
+    - How is probation feedback given?
+    - Are probation conditions flexible?
+    - Can probation be waived for experienced hires?
+    - Is probation included in appraisal?
+    - Are probation extensions common?
+    - Can probation outcome affect role?
+    - Are probation evaluations objective?
+    - How is probation period monitored?
+    - Are probationers treated differently in work allocation?
+    - Can probation outcomes affect salary increment?
+    - Is probation part of onboarding?
+    - Can probation be terminated for misconduct?
+    - How is probation information stored?
+    - Are probationers informed about expectations?
+    - Can probation period be adjusted per department?
+    - Who approves probation extension?
+    - Are probation policies publicly available?
+    - How is probation communicated in HR portal?
+
+- intent: termination_policy_query
+  examples: |
+    - What is the termination policy?
+    - How can my employment be terminated?
+    - Are there notice periods for termination?
+    - Who decides on termination?
+    - Can termination happen during probation?
+    - Is termination immediate or after warning?
+    - How is termination communicated?
+    - Are severance payments provided?
+    - Can termination be challenged?
+    - What are the reasons for termination?
+    - Is termination documented in HR records?
+    - Can I resign instead of being terminated?
+    - How is termination process handled?
+    - Are exit interviews mandatory?
+    - Can HR provide termination details?
+    - What happens to benefits after termination?
+    - Is termination policy different for probationers?
+    - How much notice is required for termination?
+    - Are there disciplinary procedures before termination?
+    - Can termination be appealed?
+    - Are terminations public or confidential?
+    - Who approves terminations?
+    - Is termination linked to performance?
+    - Are termination letters formal?
+    - How is final salary handled on termination?
+    - Can termination occur due to misconduct?
+    - Are terminations standardized across departments?
+    - Can employees request termination clarification?
+    - How long does the termination process take?
+    - Are terminations aligned with local laws?
+    - Can termination affect references?
+    - Are exit formalities required?
+    - Can HR terminate contract for business reasons?
+    - Are severance packages explained?
+    - How is termination feedback provided?
+    - Are terminated employees eligible for rehire?
+    - How are benefits handled during termination?
+    - Can termination be delayed?
+    - Are termination policies transparent?
+    - Who handles termination paperwork?
+    - Can termination result in legal consequences?
+    - Are termination cases reviewed by HR?
+    - How is termination communicated to managers?
+    - Are termination policies updated regularly?
+    - Can employees negotiate termination terms?
+    - Are there different types of termination?
+    - Can termination occur without notice?
+    - How is termination aligned with company policy?
+
+- intent: grievance_policy_query
+  examples: |
+    - How do I file a grievance?
+    - What is the grievance procedure?
+    - Can grievances be submitted anonymously?
+    - Who handles employee grievances?
+    - Are grievances investigated formally?
+    - How long does it take to resolve a grievance?
+    - Can HR mediate a grievance?
+    - What types of grievances can I report?
+    - Are grievances confidential?
+    - Can I appeal if grievance is rejected?
+    - How is a grievance submitted?
+    - Can grievances affect my job?
+    - Are grievances linked to performance appraisal?
+    - Who approves grievance resolutions?
+    - Can I track my grievance status?
+    - Are there deadlines to submit grievances?
+    - How are grievances escalated?
+    - Can grievances be informal?
+    - Are grievances only for serious issues?
+    - Can managers file grievances?
+    - Are there grievance committees?
+    - Can HR provide guidance on grievances?
+    - Are grievances reported to top management?
+    - Is there a policy manual for grievances?
+    - How are grievances documented?
+    - Can grievances be submitted online?
+    - Are grievances handled fairly?
+    - Can I report workplace harassment as grievance?
+    - How long before grievance is resolved?
+    - Can grievances result in disciplinary action?
+    - Are grievance resolutions final?
+    - Can employees withdraw grievances?
+    - Are grievances addressed promptly?
+    - Can multiple grievances be submitted?
+    - Are grievances reviewed regularly?
+    - Can grievance outcomes be appealed?
+    - Who communicates grievance outcome?
+    - Are grievances linked to HR policies?
+    - Can grievances be resolved informally?
+    - Are grievances confidentially stored?
+    - Can employees discuss grievances with peers?
+    - Are grievances tracked in HR system?
+    - Can HR help with grievance documentation?
+    - Are grievance procedures consistent?
+    - Can grievance outcomes affect salary?
+    - Are grievances communicated to management?
+    - Can employees request grievance guidance?
+    - Are grievances standardized across departments?
+    - Can grievances be resolved without HR?
+    - Are grievance submissions anonymous?
+
+- intent: insurance_policy_query
+  examples: |
+    - What insurance benefits are provided?
+    - Are employees covered under health insurance?
+    - How do I claim insurance benefits?
+    - Is insurance mandatory?
+    - Are dependents covered under insurance?
+    - Can I enroll in insurance anytime?
+    - What types of insurance are available?
+    - How is insurance premium deducted?
+    - Are insurance claims processed online?
+    - Who handles insurance queries?
+    - Can I get life insurance through company?
+    - Is insurance provided immediately on joining?
+    - Are insurance terms in contract?
+    - Can insurance coverage be extended?
+    - How long does it take to process claims?
+    - Are insurance documents provided digitally?
+    - Can HR help with insurance issues?
+    - Are there multiple insurance plans?
+    - Can insurance be cancelled?
+    - Are insurance benefits taxable?
+    - How is insurance eligibility verified?
+    - Can I update dependent information?
+    - Are insurance policies reviewed regularly?
+    - How is insurance renewal handled?
+    - Can I get travel insurance through company?
+    - Are there optional insurance plans?
+    - Is insurance automatic for all employees?
+    - Can insurance be claimed for hospitalization?
+    - Are pre-existing conditions covered?
+    - Can insurance cover family members?
+    - How is insurance premium communicated?
+    - Are insurance claims confidential?
+    - Can I check insurance status online?
+    - Are insurance policies uniform for all employees?
+    - Can I get reimbursement for insurance expenses?
+    - Are insurance policies explained during onboarding?
+    - How long does insurance coverage last?
+    - Are insurance queries handled promptly?
+    - Can insurance coverage change mid-year?
+    - Are insurance claims processed quickly?
+    - Can HR explain insurance terms?
+    - Are insurance policies mandatory?
+    - Can I appeal insurance claim decisions?
+    - How is insurance communicated to employees?
+    - Are insurance benefits part of total compensation?
+    - Can I opt-out of company insurance?
+    - Are insurance forms available online?
+    - How are insurance disputes handled?
+    - Can insurance coverage be transferred?
+    - Are insurance benefits renewed annually?
+    - Can employees add insurance dependents?
+    - Are insurance policies compliant with laws?
+
+- intent: leave_policy_query
+  examples: |
+    - tell me about leave policy
+    - leave rules
+    - general leave information
+    - how many leaves do we get
+
+- intent: leave_casual_query
+  examples: |
+    - casual leave
+    - how many casual leaves do I have
+    - CL policy
+    - tell me about casual leave
+
+- intent: leave_sick_query
+  examples: |
+    - sick leave
+    - SL policy
+    - how many sick leaves
+    - tell me about sick leave
+
+- intent: leave_earned_query
+  examples: |
+    - earned leave
+    - EL policy
+    - can I carry forward my earned leave
+    - tell me about earned leave
+
+- intent: leave_maternity_query
+  examples: |
+    - maternity leave
+    - leave for new mothers
+    - how long is maternity leave
+    - maternity leave policy
+
+- intent: leave_paternity_query
+  examples: |
+    - paternity leave
+    - leave for new fathers
+    - how long is paternity leave
+    - paternity leave policy
+
+- intent: leave_sick_query
+  examples: |
+    - sick leave
+    - SL policy
+    - how many sick leaves do I have
+    - tell me about sick leave
+    - how to apply sick leave
+    - request sick leave
+    - procedure to take sick leave
+    - applying for sick leave
+    - process for sick leave
+    - steps to submit sick leave
+
+- intent: leave_casual_query
+  examples: |
+    - casual leave
+    - CL policy
+    - how many casual leaves are allowed
+    - tell me about casual leave
+    - how to apply casual leave
+    - request casual leave
+    - procedure to take casual leave
+    - applying for casual leave
+    - steps to submit casual leave
+
+- intent: leave_earned_query
+  examples: |
+    - earned leave
+    - EL policy
+    - how many earned leaves can I carry forward
+    - tell me about earned leave
+    - how to apply earned leave
+    - request earned leave
+    - procedure to take earned leave
+    - applying for earned leave
+    - steps to submit earned leave
+
+- intent: leave_maternity_query
+  examples: |
+    - maternity leave
+    - ML policy
+    - how many weeks of maternity leave
+    - tell me about maternity leave
+    - how to apply for maternity leave
+    - request maternity leave
+    - procedure to take maternity leave
+    - applying for maternity leave
+    - steps to submit maternity leave
+
+- intent: leave_paternity_query
+  examples: |
+    - paternity leave
+    - PL policy
+    - how many days of paternity leave
+    - tell me about paternity leave
+    - how to apply for paternity leave
+    - request paternity leave
+    - procedure to take paternity leave
+    - applying for paternity leave
+    - steps to submit paternity leave
+
+- intent: asset_request_query
+  examples: |
+    - how do I get new assets
+    - I need a laptop
+    - request new equipment
+    - need new workstation
+    - how to request office assets
+    - get new peripherals
+    - can I get a new monitor
+    - requesting company equipment
+
+- intent: public_holidays_query
+  examples: |
+    - what are the public holidays
+    - tell me the company holidays
+    - public holidays this year
+    - list of holidays
+    - HR holiday calendar

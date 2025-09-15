@@ -1,0 +1,74 @@
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.pot
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+*.env
+
+# -----------------------------
+# Rasa-specific
+# -----------------------------
+models/                 # trained models
+results/                # test/eval results
+rasa.log                # rasa log file
+*.lock                  # lock files
+.rasa/                  # internal rasa data
+.cache/                 # training cache
+.history/               # conversation history
+rasa/cache/
+rasa/core/checkpoints/
+rasa/nlu/cache/
+
+# -----------------------------
+# Sensitive config
+# -----------------------------
+credentials.yml         # contains API tokens (Slack, Telegram, etc.)
+endpoints.yml           # may contain sensitive URLs/secrets
+*.key
+*.pem
+*.crt
+*.secret
+*.token
+
+# -----------------------------
+# Jupyter Notebooks
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# IDE / Editor
+# -----------------------------
+.vscode/
+.idea/
+*.iml
+
+# -----------------------------
+# OS files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Node.js (if frontend included)
+# -----------------------------
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# -----------------------------
+# Build / Distribution
+# -----------------------------
+dist/
+build/

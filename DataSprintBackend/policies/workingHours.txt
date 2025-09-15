@@ -1,7 +1,0 @@
-Working Hours & Attendance
-
-- Standard working hours: 9:00 AM – 6:00 PM (Monday to Friday).
-- Employees must log 8 hours per day, with a 1-hour lunch break.
-- 15-minute grace period allowed in the morning, up to 3 times a month.
-- Persistent late arrivals may lead to salary deductions.
-- Attendance must be logged via biometric system or official attendance portal.
