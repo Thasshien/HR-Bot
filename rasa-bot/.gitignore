@@ -20,7 +20,7 @@ ENV/
 # -----------------------------
 # Rasa-specific
 # -----------------------------
-models/                 # trained models
+models                 # trained models
 results/                # test/eval results
 rasa.log                # rasa log file
 *.lock                  # lock files
