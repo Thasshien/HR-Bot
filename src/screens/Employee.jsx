@@ -15,7 +15,7 @@ const Employee = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [formData, setFormData] = useState({});
   const [submitStatus, setSubmitStatus] = useState(null);
-
+  const token = localStorage.getItem("token");
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
