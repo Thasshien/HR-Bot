@@ -12,7 +12,7 @@ export default function LoginPage() {
     email: '',
     password: ''
   });
-  const url = 'http://localhost:3000'; // frappe usually runs on 8000
+  const url = 'http://localhost:3000';
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -26,18 +26,16 @@ export default function LoginPage() {
     e.preventDefault();
 
     axios.post(
-      `${url}/login`,
+      `${url}/api/login`,
       {
         email: credentials.email,
         password: credentials.password
       },
-      { withCredentials: true } // sends/receives cookies
+      { withCredentials: true }
     ).then(response => {
       console.log("Logged in successfully!", response.data);
       toast.success("Login successful!");
 
-      // Save cookies in browser automatically with withCredentials
-      // Save email locally for backend leave calls
       localStorage.setItem("userEmail", credentials.email);
 
       if (userType === 'employee') navigate('/emp_dashboard');
@@ -48,7 +46,6 @@ export default function LoginPage() {
       toast.error("Login failed! Please check your credentials.");
     });
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 flex items-center justify-center p-4">

@@ -52,8 +52,8 @@ const Employee = () => {
       try {
         const email = localStorage.getItem("userEmail"); // send email for backend lookup
         const endpoint = formData.leaveType.toLowerCase() === "maternity leave"
-          ? `${url}/apply-leave-maternity`
-          : `${url}/apply-leave`;
+          ? `${url}/api/emp/apply-leave-maternity`
+          : `${url}/api/emp/apply-leave`;
 
         await axios.post(
           endpoint,
@@ -259,7 +259,7 @@ const PolicyQueryForm = () => {
         console.log("Submitting asset request:", payload);
 
         const response = await axios.post(
-          "http://localhost:3000/request-asset",
+          "http://localhost:3000/api/emp/request-asset",
           payload,
           {
             headers: {
@@ -458,9 +458,7 @@ const PolicyQueryForm = () => {
                 <span className="text-xl font-semibold text-gray-800">Employee Portal</span>
               </div>
             </div>
-            <div className="text-sm text-gray-600">
-              Welcome, John Doe
-            </div>
+            
             <div>
               <button className='bg-slate-300 p-3 rounded-3xl hover:bg-slate-400' onClick={() => signout()}>Sign Out</button>
             </div>

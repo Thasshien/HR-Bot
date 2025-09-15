@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { App_Context } from "../context/Context";
 import axios from "axios"; // Uncomment this when using real API
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
@@ -16,6 +17,8 @@ const HRDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [employees, setemployees] = useState([])
+  const { signout } = useContext(App_Context);
+
   const getDepartmentDistribution = () => {
     const deptCount = employees.reduce((acc, emp) => {
       acc[emp.department] = (acc[emp.department] || 0) + 1;
@@ -112,7 +115,7 @@ const HRDashboard = () => {
         setError(null);
 
         if (activeTab === "open-leaves") {
-          const response = await axios.get("http://localhost:3000/hr-leave-requests");
+          const response = await axios.get("http://localhost:3000/api/hr/leave-requests");
           console.log("open Leaves Response:", response.data);
           // Optional: calculate SLA hours left if needed
           const data = response.data.data.map(leave => {
@@ -134,7 +137,7 @@ const HRDashboard = () => {
           setLeaveApplications(data);
 
         } else if (activeTab === "approved-leaves") {
-          const response = await axios.get("http://localhost:3000/hr-leave-approved-requests");
+          const response = await axios.get("http://localhost:3000/api/hr/leave-approved-requests");
           console.log("Approved Leaves Response:", response.data);
 
           // Map API fields to camelCase
@@ -151,7 +154,7 @@ const HRDashboard = () => {
 
           setApprovedLeaves(data);
         } else if (activeTab === "asset-movement") {
-          const response = await axios.get("http://localhost:3000/asset-movements");
+          const response = await axios.get("http://localhost:3000/api/hr/asset-movements");
           console.log("Asset Movements Response:", response.data);
           setAssetMovements(response.data.data);
           console.log(response.data)
@@ -159,9 +162,9 @@ const HRDashboard = () => {
         } else if (activeTab === "analytics") {
           try {
             const [leavesResponse, assetsResponse, employeesResponse] = await Promise.all([
-              axios.get("http://localhost:3000/hr-leave-requests"),
-              axios.get("http://localhost:3000/asset-movements"),
-              axios.get("http://localhost:3000/get-employees"),
+              axios.get("http://localhost:3000/api/hr/leave-requests"),
+              axios.get("http://localhost:3000/api/hr/asset-movements"),
+              axios.get("http://localhost:3000/api/hr/get-employees"),
             ]);
 
             const leaves = leavesResponse.data.data;
@@ -433,10 +436,10 @@ const HRDashboard = () => {
             </ResponsiveContainer>
           </div>
 
-          
+
 
           {/* Leave Statistics */}
-          
+
         </div>
 
         {/* Employee Details Table */}
@@ -484,16 +487,16 @@ const HRDashboard = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${employee.employment_type === 'Full-time'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-blue-100 text-blue-800'
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-blue-100 text-blue-800'
                         }`}>
                         {employee.employment_type}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${employee.status === 'Active'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-red-100 text-red-800'
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-800'
                         }`}>
                         {employee.status}
                       </span>
@@ -529,7 +532,19 @@ const HRDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">HR Dashboard</h1>
+        <div className="flex justify-between items-center p-4">
+          <p className="text-3xl font-bold text-gray-900 text-center flex-1">
+            HR Dashboard
+          </p>
+          <div>
+            <button
+              className="bg-slate-300 p-3 rounded-3xl hover:bg-slate-400"
+              onClick={() => signout()}
+            >
+              Sign Out
+            </button>
+          </div>
+        </div>
 
         {/* Tab Navigation */}
         <div className="bg-white rounded-lg shadow mb-6">
