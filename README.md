@@ -1,5 +1,4 @@
- ## HR Automation AI Prototype
-
+## HR Automation AI Bot
 This repository contains a fully functional **HR Automation AI prototype** developed during an overnight hackathon. The solution leverages Conversational AI, automated workflows, agentic AI, and analytics dashboards to streamline HR operations.  
 
 ---
